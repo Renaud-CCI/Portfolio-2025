@@ -7,6 +7,10 @@
     Test rouge
   </div>
 
+  <v-btn>
+    Button
+  </v-btn>
+
   <!-- <RouterView /> -->
 </template>
 
