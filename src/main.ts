@@ -15,7 +15,10 @@ const vuetify = createVuetify({
   directives,
 })
 
-const app = createApp(App)
+// I18n
+import i18n from './i18n'
+
+const app = i18n(createApp(App))
 
 app.use(router)
 app.use(vuetify)
