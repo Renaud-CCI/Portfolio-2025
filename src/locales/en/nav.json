@@ -1,6 +1,11 @@
 {
   "home": "Home",
-  "projects": "Projects",
+  "projects": "Portfolio",
+  "services": "Services",
   "about": "About",
-  "contact": "Contact"
+  "contact": "Contact",
+  "view_projects": "View Projects",
+  "contact_me": "Contact Me",
+  "light_mode": "Light Mode",
+  "dark_mode": "Dark Mode"
 }

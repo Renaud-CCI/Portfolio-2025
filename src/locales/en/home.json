@@ -1,0 +1,21 @@
+{
+  "full_stack_developer": "Full Stack Developer",
+  "intro_text": "Former laboratory technician turned web developer, I design applications as I used to prepare solutions: with precision, method, and curiosity. Passionate about logic and structure, I seek useful, sustainable, and well-thought-out projects. Today, I put my code at the service of your ideas.",
+  "about_title": "About Me",
+  "about_subtitle": "I'm Renaud Bresson",
+  "about_text": "Discover my somewhat acrobatic journey, my values as a web gardener, and how I help ideas grow online.",
+  "about_cta": "Learn more about me",
+  "about_download_cv": "Download my CV",
+  "projects_title": "My Projects",
+  "projects_subtitle": "Passionate Web Developer",
+  "projects_text": "Explore my web development creations, from showcase websites to SOLID and custom applications. Each project is a new adventure, a new learning ground, a new pride.",
+  "projects_cta": "See projects",
+  "services_title": "Offered Services",
+  "services_subtitle": "Flexible, human, and clear solutions",
+  "services_text": "I help you create modern websites, efficient interfaces, or well-designed APIs. Whether you are a craftsman, freelancer, or idea carrier, I translate your needs into functional logic.",
+  "services_cta": "See services",
+  "contact_title": "Contact Me",
+  "contact_subtitle": "Let's discuss your project",
+  "contact_text": "Whether you have a precise idea in mind or just want to move forward, feel free to send me a message.",
+  "contact_cta": "Contact me"
+}

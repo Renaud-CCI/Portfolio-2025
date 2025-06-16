@@ -1,6 +1,11 @@
 {
   "home": "Accueil",
-  "projects": "Projets",
+  "projects": "Portfolio",
+  "services": "Services",
   "about": "À propos",
-  "contact": "Contact"
+  "contact": "Contact",
+  "view_projects": "Voir les Projets",
+  "contact_me": "Me Contacter",
+  "light_mode": "Mode clair",
+  "dark_mode": "Mode sombre"
 }
