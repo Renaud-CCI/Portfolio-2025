@@ -7,5 +7,7 @@
   "view_projects": "View Projects",
   "contact_me": "Contact Me",
   "light_mode": "Light Mode",
-  "dark_mode": "Dark Mode"
+  "dark_mode": "Dark Mode",
+  "download_cv": "Download my CV",
+  "footer_citation": "Website made with Vue.js & ❤️"
 }

@@ -1,9 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import type {
-  RouteLocationNormalized,
-  RouteLocationNormalizedLoaded,
-  ScrollPositionNormalized,
-} from 'vue-router'
+import type { RouteLocationNormalized, RouteLocationNormalizedLoaded } from 'vue-router'
 import Home from '@/components/Home.vue'
 import Projects from '@/components/Projects.vue'
 import About from '@/components/About.vue'
@@ -15,9 +11,8 @@ const router = createRouter({
   scrollBehavior(
     to: RouteLocationNormalized,
     from: RouteLocationNormalizedLoaded,
-    savedPosition?: ScrollPositionNormalized,
+    savedPosition?: any,
   ) {
-    // Si l'utilisateur utilise les boutons précédent/suivant et qu'une position existe
     if (savedPosition) {
       return {
         ...savedPosition,
