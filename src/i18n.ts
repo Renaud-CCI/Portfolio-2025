@@ -13,6 +13,9 @@ i18next
   .init({
     debug: false,
     fallbackLng: 'fr',
+    interpolation: {
+      escapeValue: false, // Ne pas échapper les valeurs HTML
+    },
     resources: {
       en: {
         translation: resources.en,

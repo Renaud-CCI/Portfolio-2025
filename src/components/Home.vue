@@ -37,8 +37,9 @@
   <section class="py-16 px-4 md:px-12 transition-colors flex flex-col md:flex-row items-center justify-between gap-8"
     :class="isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'">
     <!-- Illustration -->
-    <div class="w-2/3 sm:w-1/2">
-      <img src="/images/section-about.png" alt="Illustration À propos" class="w-full max-w-md mx-auto" />
+    <div class="w-2/3 md:w-1/2 flex justify-center items-center">
+      <img src="/images/section-about.png" alt="Illustration À propos"
+        class="w-full md:w-2/3 lg:w-full max-w-md mx-auto" />
     </div>
 
     <!-- Texte -->
@@ -54,7 +55,7 @@
         {{ t('home.about_cta') }}
       </v-btn>
       <v-btn href="/docs/cv-renaud-bresson.pdf" target="_blank" download variant="outlined"
-        class="text-amber-500 border-amber-500 ml-0 ml-sm-4 mt-4 mt-sm-0">
+        class="text-amber-500 border-amber-500 ml-0 ml-sm-4 mr-sm-4 mt-4 mt-md-0">
         {{ t('home.about_download_cv') }}
       </v-btn>
     </div>
@@ -314,7 +315,7 @@ onMounted(() => {
 
 /* Style pour la section héro */
 .hero-container {
-  height: 90vh;
+  height: 94vh;
 }
 
 /* Animation hover pour les boutons */

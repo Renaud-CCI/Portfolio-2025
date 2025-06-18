@@ -1,0 +1,58 @@
+{
+  "title": "About Me",
+  "subtitle": "Curious Developer and Logical Gardener",
+  "bio_intro": "After a career change from laboratory work, I now design web applications with precision, structure, and passion. My atypical background taught me to observe, understand, and then create.",
+  "bio_skills": "I mainly develop with {{laravel}}, {{vue}}, and have strong skills in {{sql}}, {{php}}, and {{tailwind}}. I have also worked with {{wordpress}}, {{symfony}}, {{typescript}}, and {{reactNative}} as needed for projects. I value code clarity (SOLID, design patterns), good documentation, and enjoy tools that facilitate teamwork like {{git}}, {{notion}}, or {{trello}}.",
+  "bio_rqth": "My profile includes an {{rqth}}, which simply means I need a hybrid work organization (partial remote or sedentary position), with no impact on my skills or commitment. I am autonomous, rigorous, and comfortable working both in a team and independently.",
+  "bio_goals": "I am looking for meaningful, sustainable, and logical projects. My goal is to write code that serves concrete, human, or ecological ideas.",
+  "view_projects": "View my projects",
+  "download_cv": "Download my CV",
+  "ready_to_talk": "Ready to chat?",
+  "invite_contact": "Let's discuss your needs, ideas, or projects to develop.",
+  "contact_me": "Contact me",
+  "timeline_title": "My Journey",
+  "timeline": [
+    {
+      "date": "Today",
+      "title": "Open to new opportunities",
+      "description": "Freelance, part-time mission, or back/front dev position (partial remote possible)."
+    },
+    {
+      "date": "Since 2024",
+      "title": "Shinefulness® – Full stack missions remote",
+      "description": "Setup, maintenance, and evolution of the Shinefulness® platform in Laravel API + VueJs.",
+      "contact": "https://www.linkedin.com/in/olivier-soria/"
+    },
+    {
+      "date": "2024 - 2025",
+      "title": "Work-study CDA at M2M Financement - St Etienne",
+      "description": "Development of business platforms, autonomy on key features. Improved architecture and integration of OOP and design patterns in a native procedural PHP environment.",
+      "contact": "https://www.linkedin.com/in/aurelienlievin/"
+    },
+    {
+      "date": "2024",
+      "title": "Internship at Garage404 - Roanne",
+      "description": "Updated training materials, contributed to new modules, developed internal tools for the team.",
+      "contact": "https://www.linkedin.com/in/%F0%9F%92%A5florent-ferlay-52134b171/"
+    },
+    {
+      "date": "2023",
+      "title": "Internship at HighDay - St Etienne",
+      "description": "Front-end internship in VueJs, developed according to UI designs, integrated components, and fixed bugs.",
+      "contact": "https://www.linkedin.com/in/remi-de-almeida/"
+    }
+  ],
+  "diplomas_title": "Degrees and Certifications",
+  "diplomas": [
+    {
+      "date": "June 2025",
+      "title": "Application Developer Designer (CDA)",
+      "description": "Bachelor's level work-study program at M2M Financement. Worked on business platforms, APIs, and back-end logic."
+    },
+    {
+      "date": "November 2023",
+      "title": "Professional Title DWWM",
+      "description": "Web and Mobile Web Developer – intensive 12-month training, fullstack projects, and best front/back practices."
+    }
+  ]
+}

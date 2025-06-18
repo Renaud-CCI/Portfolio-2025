@@ -52,6 +52,8 @@
     <v-main>
       <RouterView />
     </v-main>
+
+    <Footer />
   </v-app>
 </template>
 
@@ -62,6 +64,7 @@ import { useTranslation } from 'i18next-vue'
 import i18next from 'i18next'
 import { useTheme } from 'vuetify'
 import { useRoute } from 'vue-router'
+import Footer from './components/Footer.vue'
 
 const route = useRoute()
 
