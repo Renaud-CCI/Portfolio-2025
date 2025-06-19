@@ -1,0 +1,33 @@
+{
+  "title": "Mon portfolio",
+  "intro": "Voici quelques projets sélectionnés parmi ceux réalisés en formation, en freelance ou pour le plaisir. Chacun reflète mon souci de qualité, ma capacité à m'adapter aux besoins, et mon goût pour le développement structuré.",
+  "view_project": "Acceder au site",
+  "close": "Fermer",
+  "projects": {
+    "pepe": {
+      "title": "Pépé la boulange",
+      "description": "Site vitrine et interface de commande artisanale",
+      "descriptionLong": "Site full stack développé pour une boulangerie tarnaise, avec espace d’administration, gestion des produits et commande en ligne. Réalisé en Laravel et Vue.js pour une gestion autonome par le client."
+    },
+    "plantes": {
+      "title": "Révisions2Plantes",
+      "description": "App de révision botanique pour étudiants",
+      "descriptionLong": "Application conçue en Vue.js pour des apprenants en maraîchage. Propose des fiches, un mode flashcards et des quiz avec score. Pensée pour aider à la mémorisation des plantes ornementales, adventices et indésirables."
+    },
+    "simpsons": {
+      "title": "Simpsons Fight",
+      "description": "Mini-jeu cartoon en Angular",
+      "descriptionLong": "Jeu inspiré de l’univers des Simpsons : combat tour par tour entre une équipe aléatoire et l’extraterrestre Kang. Réalisé avec Angular, animations dynamiques et logique de jeu RPG simple."
+    },
+    "puissance4": {
+      "title": "Puissance 4",
+      "description": "Jeu classique en JS orienté objet",
+      "descriptionLong": "Développé en JavaScript POO, ce jeu propose une logique complète de détection de victoire, personnalisation des joueurs, grille dynamique et mode multi-manches avec objectif de score."
+    },
+    "shinefulness": {
+      "title": "Shinefulness®",
+      "description": "Plateforme bien-être Laravel/VueJS",
+      "descriptionLong": "Application SPA Vue.js et API Laravel basée sur « Le théorème du bien-être » (O. Soria). Génération de feuilles de route PDF, statistiques, mailing et expérience utilisateur accessible. Projet long de CDA avec architecture propre, design patterns et authentification sécurisée (Sanctum)."
+    }
+  }
+}
