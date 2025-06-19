@@ -1,0 +1,33 @@
+{
+  "title": "My portfolio",
+  "intro": "Here are some selected projects completed during training, freelance work, or for fun. Each reflects my attention to quality, adaptability to needs, and passion for structured development.",
+  "view_project": "View site",
+  "close": "Close",
+  "projects": {
+    "pepe": {
+      "title": "Pépé la boulange",
+      "description": "Showcase website and artisan order interface",
+      "descriptionLong": "Full stack site developed for a bakery in Tarn, with admin area, product management, and online ordering. Built with Laravel and Vue.js for autonomous client management."
+    },
+    "plantes": {
+      "title": "Révisions2Plantes",
+      "description": "Botany revision app for students",
+      "descriptionLong": "Application designed in Vue.js for market gardening students. Offers cards, flashcard mode, and quizzes with scoring. Designed to help memorize ornamental, weed, and unwanted plants."
+    },
+    "simpsons": {
+      "title": "Simpsons Fight",
+      "description": "Cartoon mini-game in Angular",
+      "descriptionLong": "Game inspired by the Simpsons universe: turn-based combat between a random team and the alien Kang. Built with Angular, dynamic animations, and simple RPG game logic."
+    },
+    "puissance4": {
+      "title": "Connect 4",
+      "description": "Classic game in object-oriented JS",
+      "descriptionLong": "Developed in OOP JavaScript, this game features complete win detection logic, player customization, dynamic grid, and multi-round mode with score objectives."
+    },
+    "shinefulness": {
+      "title": "Shinefulness®",
+      "description": "Wellness platform Laravel/VueJS",
+      "descriptionLong": "SPA application in Vue.js and Laravel API based on 'Le théorème du bien-être' (O. Soria). Generates PDF roadmaps, statistics, mailing, and accessible user experience. Long-term CDA project with clean architecture, design patterns, and secure authentication (Sanctum)."
+    }
+  }
+}
