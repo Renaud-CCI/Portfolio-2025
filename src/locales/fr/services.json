@@ -1,0 +1,23 @@
+{
+  "title": "Mes services",
+  "intro": "J’interviens sur des projets web en back-end ou full stack, que ce soit dans le cadre d’une mission freelance ou pour renforcer une équipe. J’aime les bases solides, le code propre et les outils efficaces.",
+  "items": {
+    "backend": {
+      "title": "Développement back-end",
+      "description": "Création d’API REST sécurisées, plateformes métiers ou outils internes, principalement avec Laravel, SQL et une architecture structurée."
+    },
+    "frontend": {
+      "title": "Intégration front-end",
+      "description": "Interfaces responsives et maintenables en Vue.js, HTML/CSS (ou Tailwind), avec focus sur l’accessibilité et l’ergonomie."
+    },
+    "maintenance": {
+      "title": "Maintenance & évolutions",
+      "description": "Amélioration de projets existants : refactorisation, debug, ajout de fonctionnalités ou migration progressive vers une architecture plus moderne."
+    },
+    "collaboration": {
+      "title": "Collaboration & freelance",
+      "description": "Disponible pour des missions ponctuelles ou continues, avec télétravail partiel. J’apporte rigueur, autonomie et adaptabilité."
+    }
+  },
+  "cta": "Me contacter"
+}
