@@ -31,8 +31,8 @@
             <v-icon icon="mdi-email-outline" />
           </a>
         </div>
-        <v-btn href="/docs/cv-renaud-bresson.pdf" target="_blank" download
-          class="text-sm border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white" variant="outlined">
+        <v-btn :href="cvPath" target="_blank" variant="outlined"
+          class="text-sm border border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-white">
           {{ t('nav.download_cv') }}
         </v-btn>
       </div>
@@ -46,6 +46,9 @@ import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'
 import { RouterLink } from 'vue-router'
+import { useCVPath } from '@/composables/cv'
+
+const { cvPath } = useCVPath()
 
 const { t } = useTranslation()
 
