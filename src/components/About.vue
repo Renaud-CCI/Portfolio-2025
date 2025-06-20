@@ -35,8 +35,7 @@
         <v-btn color="secondary" :to="'/projects'" class="text-white font-semibold">
           {{ t('about.view_projects') }}
         </v-btn>
-        <v-btn variant="outlined" href="/docs/cv-renaud-bresson.pdf" target="_blank" download
-          class="border-amber-500 text-amber-500">
+        <v-btn :href="cvPath" target="_blank" variant="outlined" class="border-amber-500 text-amber-500">
           {{ t('about.download_cv') }}
         </v-btn>
       </div>
@@ -90,10 +89,13 @@ defineOptions({ name: 'AboutContainer' })
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'
+import { useCVPath } from '@/composables/cv'
 
 const { t } = useTranslation()
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
+
+const { cvPath } = useCVPath()
 
 // Récupérez la timeline depuis les traductions
 const timeline = computed(() => {

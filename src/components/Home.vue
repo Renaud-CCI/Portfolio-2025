@@ -54,7 +54,7 @@
       <v-btn color="secondary" :to="'/about'" class="text-white font-semibold">
         {{ t('home.about_cta') }}
       </v-btn>
-      <v-btn href="/docs/cv-renaud-bresson.pdf" target="_blank" download variant="outlined"
+      <v-btn :href="cvPath" target="_blank" variant="outlined"
         class="text-amber-500 border-amber-500 ml-0 ml-sm-4 mr-sm-4 mt-4 mt-md-0">
         {{ t('home.about_download_cv') }}
       </v-btn>
@@ -141,12 +141,15 @@ import { computed, onMounted, ref } from 'vue'
 import { useTheme } from 'vuetify'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { useCVPath } from '@/composables/cv'
 
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 const { t } = useTranslation()
 
 gsap.registerPlugin(ScrollTrigger)
+
+const { cvPath } = useCVPath()
 
 // Références pour les animations
 const heroSection = ref<HTMLElement | null>(null)
