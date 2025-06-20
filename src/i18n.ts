@@ -14,7 +14,7 @@ i18next
     debug: false,
     fallbackLng: 'fr',
     interpolation: {
-      escapeValue: false, // Ne pas échapper les valeurs HTML
+      escapeValue: false,
     },
     resources: {
       en: {
@@ -23,6 +23,10 @@ i18next
       fr: {
         translation: resources.fr,
       },
+    },
+    detection: {
+      order: ['querystring', 'cookie', 'localStorage', 'navigator'],
+      caches: ['cookie', 'localStorage'],
     },
   })
 
