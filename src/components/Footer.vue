@@ -41,6 +41,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'FooterContainer' })
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'

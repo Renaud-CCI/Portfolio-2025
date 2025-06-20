@@ -40,14 +40,21 @@ const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 
 const showPopup = ref(false)
-const selectedProject = ref<any>(null)
+interface Project {
+  id: string
+  image: string
+  link: string
+  github: string
+}
 
-const openProject = (project: any) => {
+const selectedProject = ref<Project | null>(null)
+
+const openProject = (project: Project) => {
   selectedProject.value = project
   showPopup.value = true
 }
 
-const projects = [
+const projects: Project[] = [
   { id: 'shinefulness', image: '/images/portfolio/shinefulness.png', link: 'https://www.shinefulness.com/', github: '' },
   { id: 'pepe', image: '/images/portfolio/pepelaboulange.png', link: 'https://www.pepelaboulange.fr/', github: '' },
   { id: 'plantes', image: '/images/portfolio/revisions2plantes.png', link: 'https://revisions2plantes.vercel.app/', github: 'https://github.com/Renaud-CCI/revisions2plantes' },

@@ -26,6 +26,7 @@
         notion: '<strong>Notion</strong>',
         trello: '<strong>Trello</strong>'
       })"></p>
+      <p class="text-base md:text-lg mb-6 leading-relaxed">{{ t('about.bio_location') }}</p>
       <p class="text-base md:text-lg mb-6 leading-relaxed"
         v-html="t('about.bio_rqth', { rqth: '<strong>RQTH</strong>' })"></p>
       <p class="text-base md:text-lg mb-10 leading-relaxed">{{ t('about.bio_goals') }}</p>
@@ -85,6 +86,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'AboutContainer' })
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'

@@ -41,7 +41,7 @@
 
     <v-navigation-drawer v-model="drawer" app temporary class="d-sm-none">
       <v-list>
-        <v-list-item v-for="link in links" :key="link.text" @click="drawer = false">
+        <v-list-item v-for="link in links" :key="link.text" @click="closeDrawer()">
           <v-list-item-title>
             <RouterLink :to="link.to">{{ link.text }}</RouterLink>
           </v-list-item-title>
@@ -59,7 +59,7 @@
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useTranslation } from 'i18next-vue'
 import i18next from 'i18next'
 import { useTheme } from 'vuetify'
@@ -69,6 +69,12 @@ import Footer from './components/Footer.vue'
 const route = useRoute()
 
 const drawer = ref(false)
+
+const closeDrawer = () => {
+  setTimeout(() => {
+    drawer.value = false
+  }, 150)
+}
 
 const currentLanguage = ref<'fr' | 'en'>(i18next.language as 'fr' | 'en')
 const theme = useTheme()
@@ -100,6 +106,11 @@ i18next.on('languageChanged', (lng) => {
   if (lng === 'fr' || lng === 'en') {
     currentLanguage.value = lng
   }
+})
+
+onMounted(() => {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  theme.global.name.value = prefersDark ? 'dark' : 'light'
 })
 </script>
 

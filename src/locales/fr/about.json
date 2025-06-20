@@ -3,6 +3,7 @@
   "subtitle": "Développeur curieux et jardinier logique",
   "bio_intro": "Après une reconversion depuis les laboratoires, je conçois aujourd’hui des applications web avec précision, structure et passion. Mon parcours atypique m’a appris à observer, comprendre, puis créer.",
   "bio_skills": "Je développe principalement avec {{laravel}}, {{vue}}, et maîtrise bien {{sql}}, {{php}} et {{tailwind}}. J’ai également eu l’occasion de travailler avec {{wordpress}}, {{symfony}}, {{typescript}} ou {{reactNative}}, selon les besoins des projets. J’attache beaucoup d’importance à la clarté du code (SOLID, design patterns), à une bonne documentation, et j’apprécie les outils qui facilitent le travail d’équipe comme {{git}}, {{notion}} ou {{trello}}.",
+  "bio_location": "Basé dans la Loire (42), je suis disponible en télétravail ou sur site autour de Feurs, Roanne, Saint-Étienne, Lyon ou toute autre opportunité correspondante à mes valeurs…",
   "bio_rqth": "Mon profil inclut une {{rqth}} et implique simplement un besoin d'organisation hybride (télétravail partiel ou poste sédentarisé), sans impact sur mes compétences ou mon implication. Je suis autonome, rigoureux et à l'aise pour travailler en équipe comme en solo.",
   "bio_goals": "Je cherche des missions utiles, durables et logiques. Mon objectif est d’écrire du code au service d’idées concrètes, humaines, ou écologiques.",
   "view_projects": "Voir mes projets",

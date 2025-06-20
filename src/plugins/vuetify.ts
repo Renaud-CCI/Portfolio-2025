@@ -4,6 +4,8 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+
 export default createVuetify({
   components,
   directives,
@@ -11,7 +13,7 @@ export default createVuetify({
     defaultSet: 'mdi',
   },
   theme: {
-    defaultTheme: 'light',
+    defaultTheme: prefersDark ? 'dark' : 'light',
     themes: {
       light: {
         dark: false,

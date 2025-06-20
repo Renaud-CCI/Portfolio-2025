@@ -40,6 +40,7 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'ServicesContainer' })
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'

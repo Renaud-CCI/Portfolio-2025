@@ -3,6 +3,7 @@
   "subtitle": "Curious Developer and Logical Gardener",
   "bio_intro": "After a career change from laboratory work, I now design web applications with precision, structure, and passion. My atypical background taught me to observe, understand, and then create.",
   "bio_skills": "I mainly develop with {{laravel}}, {{vue}}, and have strong skills in {{sql}}, {{php}}, and {{tailwind}}. I have also worked with {{wordpress}}, {{symfony}}, {{typescript}}, and {{reactNative}} as needed for projects. I value code clarity (SOLID, design patterns), good documentation, and enjoy tools that facilitate teamwork like {{git}}, {{notion}}, or {{trello}}.",
+  "bio_location": "Based in the Loire (42), I am available for remote work or on-site around Feurs, Roanne, Saint-Étienne, Lyon, or any other opportunity that matches my values...",
   "bio_rqth": "My profile includes an {{rqth}}, which simply means I need a hybrid work organization (partial remote or sedentary position), with no impact on my skills or commitment. I am autonomous, rigorous, and comfortable working both in a team and independently.",
   "bio_goals": "I am looking for meaningful, sustainable, and logical projects. My goal is to write code that serves concrete, human, or ecological ideas.",
   "view_projects": "View my projects",
