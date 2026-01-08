@@ -7,6 +7,7 @@
           decoding="async" />
         <p class="text-sm">© {{ year }} Renaud Bresson</p>
         <p class="text-xs opacity-70 mt-1">{{ t('nav.footer_citation') }}</p>
+        <div id="ecoindex-badge"></div>
       </div>
 
       <!-- Liens internes -->
@@ -43,7 +44,7 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'FooterContainer' })
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'
 import { RouterLink } from 'vue-router'
@@ -56,4 +57,16 @@ const { t } = useTranslation()
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 const year = new Date().getFullYear()
+
+onMounted(() => {
+  const existing = document.querySelector('script[data-ecoindex]') as HTMLScriptElement | null
+  if (!existing) {
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/gh/cnumr/ecoindex_badge@3/assets/js/ecoindex-badge.js'
+    script.defer = true
+    script.async = true
+    script.setAttribute('data-ecoindex', 'true')
+    document.body.appendChild(script)
+  }
+})
 </script>
