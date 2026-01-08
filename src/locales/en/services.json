@@ -8,7 +8,7 @@
     },
     "frontend": {
       "title": "Front-end integration",
-      "description": "Responsive and maintainable interfaces in Vue.js, HTML/CSS (or Tailwind), with a focus on accessibility and usability."
+      "description": "Responsive and maintainable interfaces in Vue.js, HTML/CSS (or Tailwind), with a focus on eco-conception, accessibility and usability."
     },
     "maintenance": {
       "title": "Maintenance & improvements",
