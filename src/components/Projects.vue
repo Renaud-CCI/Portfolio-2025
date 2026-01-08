@@ -14,7 +14,8 @@
       <div v-for="project in projects" :key="project.id"
         class="bg-white/10 hover:bg-white/20 dark:bg-black/20 hover:dark:bg-black/30 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 transform hover:scale-105 hover:shadow-xl"
         @click="openProject(project)">
-        <img :src="project.image" :alt="t(`portfolio.projects.${project.id}.title`)" class="w-full h-48" />
+        <img :src="project.image" :alt="t(`portfolio.projects.${project.id}.title`)" class="w-full h-48" loading="lazy"
+          decoding="async" />
         <div class="py-2 px-4">
           <h2 class="text-xl font-bold mb-2 text-amber-500">{{ t(`portfolio.projects.${project.id}.title`) }}</h2>
           <p class="text-sm text-gray-500 dark:text-gray-400">{{ t(`portfolio.projects.${project.id}.description`) }}

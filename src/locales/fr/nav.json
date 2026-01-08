@@ -9,5 +9,6 @@
   "light_mode": "Mode clair",
   "dark_mode": "Mode sombre",
   "download_cv": "Télécharger mon CV",
-  "footer_citation": "Site réalisé avec Vue.js & ❤️"
+  "footer_citation": "Site réalisé avec Vue.js & ❤️",
+  "settings": "Paramètres"
 }

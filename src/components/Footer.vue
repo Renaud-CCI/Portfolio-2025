@@ -3,7 +3,8 @@
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
       <!-- Logo + identité -->
       <div class="flex flex-col items-center md:items-start text-center md:text-left">
-        <img src="/images/favicon.ico" alt="Logo Renaud Bresson" class="w-12 h-12 mb-2" />
+        <img src="/images/favicon.ico" alt="Logo Renaud Bresson" class="w-12 h-12 mb-2" loading="lazy"
+          decoding="async" />
         <p class="text-sm">© {{ year }} Renaud Bresson</p>
         <p class="text-xs opacity-70 mt-1">{{ t('nav.footer_citation') }}</p>
       </div>

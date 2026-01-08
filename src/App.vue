@@ -17,13 +17,14 @@
       </v-btn>
 
 
-      <v-menu>
+      <v-menu v-model="settingsMenu">
         <template v-slot:activator="{ props }">
-          <v-btn icon v-bind="props">
-            <v-icon>mdi-cog</v-icon>
+          <v-btn icon v-bind="props" :aria-label="t('nav.settings')" :title="t('nav.settings')" aria-haspopup="menu"
+            :aria-expanded="settingsMenu" aria-controls="settings-menu">
+            <v-icon aria-hidden="true">mdi-cog</v-icon>
           </v-btn>
         </template>
-        <v-list>
+        <v-list id="settings-menu">
           <v-list-item @click="changeTheme">
             <v-list-item-title>{{ isDark ? t('nav.light_mode') : t('nav.dark_mode') }}</v-list-item-title>
           </v-list-item>
@@ -69,6 +70,7 @@ import Footer from './components/Footer.vue'
 const route = useRoute()
 
 const drawer = ref(false)
+const settingsMenu = ref(false)
 
 const closeDrawer = () => {
   setTimeout(() => {

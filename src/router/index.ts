@@ -1,10 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteLocationNormalized, RouteLocationNormalizedLoaded } from 'vue-router'
 import Home from '@/components/Home.vue'
-import Projects from '@/components/Projects.vue'
-import About from '@/components/About.vue'
-import Contact from '@/components/Contact.vue'
-import Services from '@/components/Services.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,22 +40,22 @@ const router = createRouter({
     {
       path: '/projects',
       name: 'projects',
-      component: Projects,
+      component: () => import('@/components/Projects.vue'),
     },
     {
       path: '/about',
       name: 'about',
-      component: About,
+      component: () => import('@/components/About.vue'),
     },
     {
       path: '/contact',
       name: 'contact',
-      component: Contact,
+      component: () => import('@/components/Contact.vue'),
     },
     {
       path: '/services',
       name: 'services',
-      component: Services,
+      component: () => import('@/components/Services.vue'),
     },
   ],
 })

@@ -4,7 +4,8 @@
     <div ref="parallaxBg" class="absolute inset-0 h-[140%] w-full -z-0">
       <div class="absolute inset-0 bg-gradient-to-b from-teal-700/65 z-10"
         :class="isDark ? 'to-black/75' : 'to-black/5'"></div>
-      <img src="/images/forest-hero.png" alt="Background" class="w-full h-full object-cover" />
+      <img src="/images/forest-hero-sm.png" srcset="/images/forest-hero-sm.png 1200w, /images/forest-hero.png 2000w"
+        sizes="100vw" alt="Background" class="w-full h-full object-cover" fetchpriority="high" decoding="async" />
     </div>
 
     <!-- Contenu de la section héro -->
@@ -39,7 +40,7 @@
     <!-- Illustration -->
     <div class="w-2/3 md:w-1/2 flex justify-center items-center">
       <img src="/images/section-about.png" alt="Illustration À propos"
-        class="w-full md:w-2/3 lg:w-full max-w-md mx-auto" />
+        class="w-full md:w-2/3 lg:w-full max-w-md mx-auto" loading="lazy" decoding="async" />
     </div>
 
     <!-- Texte -->
@@ -81,7 +82,7 @@
     <!-- Illustration -->
     <div class="w-1/2">
       <img src="/images/section-projects.png" alt="Illustration section projets"
-        class="w-full max-w-md mx-auto rounded-xl" />
+        class="w-full max-w-md mx-auto rounded-xl" loading="lazy" decoding="async" />
     </div>
   </section>
 
@@ -91,7 +92,7 @@
     <!-- Illustration -->
     <div class="w-1/2">
       <img src="/images/section-services.png" alt="Illustration section services"
-        class="w-full max-w-md mx-auto rounded-xl" />
+        class="w-full max-w-md mx-auto rounded-xl" loading="lazy" decoding="async" />
     </div>
 
     <!-- Texte -->
@@ -128,7 +129,8 @@
 
     <!-- Illustration -->
     <div class="w-1/2">
-      <img src="/images/section-contact.png" alt="Illustration contact" class="w-full max-w-md mx-auto rounded-xl" />
+      <img src="/images/section-contact.png" alt="Illustration contact" class="w-full max-w-md mx-auto rounded-xl"
+        loading="lazy" decoding="async" />
     </div>
   </section>
 
@@ -139,15 +141,12 @@ defineOptions({ name: 'HomePage' })
 import { useTranslation } from 'i18next-vue'
 import { computed, onMounted, ref } from 'vue'
 import { useTheme } from 'vuetify'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 import { useCVPath } from '@/composables/cv'
 
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 const { t } = useTranslation()
 
-gsap.registerPlugin(ScrollTrigger)
 
 const { cvPath } = useCVPath()
 
@@ -162,7 +161,12 @@ const heroText = ref<HTMLElement | null>(null)
 // Références pour les sections
 // const sections = ref<HTMLElement[]>([])
 
-onMounted(() => {
+onMounted(async () => {
+  const [{ default: gsap }, { default: ScrollTrigger }] = await Promise.all([
+    import('gsap'),
+    import('gsap/ScrollTrigger')
+  ])
+  gsap.registerPlugin(ScrollTrigger)
   // Initialisation manuelle des états de départ
   if (heroTitle.value) gsap.set(heroTitle.value, { opacity: 0, y: 30 });
   if (heroSubtitle.value) gsap.set(heroSubtitle.value, { opacity: 0, y: 30 });
