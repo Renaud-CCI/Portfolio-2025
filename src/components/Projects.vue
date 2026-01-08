@@ -56,11 +56,11 @@ const openProject = (project: Project) => {
 }
 
 const projects: Project[] = [
-  { id: 'shinefulness', image: '/images/portfolio/shinefulness.png', link: 'https://www.shinefulness.com/', github: '' },
-  { id: 'pepe', image: '/images/portfolio/pepelaboulange.png', link: 'https://www.pepelaboulange.fr/', github: '' },
-  { id: 'plantes', image: '/images/portfolio/revisions2plantes.png', link: 'https://revisions2plantes.vercel.app/', github: 'https://github.com/Renaud-CCI/revisions2plantes' },
-  { id: 'simpsons', image: '/images/portfolio/simpsonsFight.png', link: 'https://simpsons-fight.vercel.app/', github: 'https://github.com/Renaud-CCI/2023-06-26_sample-random-rumble-angular' },
-  { id: 'puissance4', image: '/images/portfolio/puissance4.png', link: 'https://puissance4-zeta.vercel.app/', github: 'https://github.com/Renaud-CCI/Puissance4' }
+  { id: 'shinefulness', image: '/images/portfolio/shinefulness.webp', link: 'https://www.shinefulness.com/', github: '' },
+  { id: 'pepe', image: '/images/portfolio/pepelaboulange.webp', link: 'https://www.pepelaboulange.fr/', github: '' },
+  { id: 'plantes', image: '/images/portfolio/revisions2plantes.webp', link: 'https://revisions2plantes.vercel.app/', github: 'https://github.com/Renaud-CCI/revisions2plantes' },
+  { id: 'simpsons', image: '/images/portfolio/simpsonsFight.webp', link: 'https://simpsons-fight.vercel.app/', github: 'https://github.com/Renaud-CCI/2023-06-26_sample-random-rumble-angular' },
+  { id: 'puissance4', image: '/images/portfolio/puissance4.webp', link: 'https://puissance4-zeta.vercel.app/', github: 'https://github.com/Renaud-CCI/Puissance4' }
 ]
 </script>
 

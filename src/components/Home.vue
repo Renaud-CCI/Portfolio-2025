@@ -4,8 +4,8 @@
     <div ref="parallaxBg" class="absolute inset-0 h-[140%] w-full -z-0">
       <div class="absolute inset-0 bg-gradient-to-b from-teal-700/65 z-10"
         :class="isDark ? 'to-black/75' : 'to-black/5'"></div>
-      <img src="/images/forest-hero-sm.png" srcset="/images/forest-hero-sm.png 1200w, /images/forest-hero.png 2000w"
-        sizes="100vw" alt="Background" class="w-full h-full object-cover" fetchpriority="high" decoding="async" />
+      <img src="/images/forest-hero-sm.webp" sizes="100vw" alt="Background" class="w-full h-full object-cover"
+        fetchpriority="high" decoding="async" />
     </div>
 
     <!-- Contenu de la section héro -->
@@ -39,7 +39,7 @@
     :class="isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'">
     <!-- Illustration -->
     <div class="w-2/3 md:w-1/2 flex justify-center items-center">
-      <img src="/images/section-about.png" alt="Illustration À propos"
+      <img src="/images/section-about.webp" alt="Illustration À propos"
         class="w-full md:w-2/3 lg:w-full max-w-md mx-auto" loading="lazy" decoding="async" />
     </div>
 
@@ -81,7 +81,7 @@
 
     <!-- Illustration -->
     <div class="w-1/2">
-      <img src="/images/section-projects.png" alt="Illustration section projets"
+      <img src="/images/section-projects.webp" alt="Illustration section projets"
         class="w-full max-w-md mx-auto rounded-xl" loading="lazy" decoding="async" />
     </div>
   </section>
@@ -91,7 +91,7 @@
     :class="isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'">
     <!-- Illustration -->
     <div class="w-1/2">
-      <img src="/images/section-services.png" alt="Illustration section services"
+      <img src="/images/section-services.webp" alt="Illustration section services"
         class="w-full max-w-md mx-auto rounded-xl" loading="lazy" decoding="async" />
     </div>
 
@@ -129,7 +129,7 @@
 
     <!-- Illustration -->
     <div class="w-1/2">
-      <img src="/images/section-contact.png" alt="Illustration contact" class="w-full max-w-md mx-auto rounded-xl"
+      <img src="/images/section-contact.webp" alt="Illustration contact" class="w-full max-w-md mx-auto rounded-xl"
         loading="lazy" decoding="async" />
     </div>
   </section>

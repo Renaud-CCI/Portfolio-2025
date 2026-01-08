@@ -11,7 +11,7 @@
 
       <!-- Bloc photo + réseaux sociaux -->
       <div class="flex flex-col items-center justify-center mb-10 space-y-4">
-        <img src="/images/pp-teal-sm.png" alt="Photo de Renaud Bresson"
+        <img src="/images/pp-teal-sm.webp" alt="Photo de Renaud Bresson"
           class="w-20 h-20 md:w-24 md:h-24 rounded-full border-4 border-teal-600 shadow" loading="lazy"
           decoding="async" />
 

@@ -3,7 +3,7 @@
     :class="isDark ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'">
     <!-- Illustration intro -->
     <div class="w-full md:w-2/3 mx-auto">
-      <img src="/images/banner-teal-sm.png" alt="Illustration À propos" class="w-full rounded-xl shadow-lg"
+      <img src="/images/banner-teal-sm.webp" alt="Illustration À propos" class="w-full rounded-xl shadow-lg"
         loading="lazy" decoding="async" />
     </div>
 

@@ -33,7 +33,7 @@
 
     <!-- Illustrations -->
     <div class="flex flex-col md:flex-row justify-center items-center mt-12">
-      <img src="/images/section-services-handshake-sm.png" alt="Illustration complémentaire"
+      <img src="/images/section-services-handshake-sm.webp" alt="Illustration complémentaire"
         class="w-full max-w-md rounded-xl" loading="lazy" decoding="async" />
     </div>
   </section>
