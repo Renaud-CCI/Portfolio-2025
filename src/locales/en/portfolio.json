@@ -28,6 +28,11 @@
       "title": "Shinefulness®",
       "description": "Wellness platform Laravel/VueJS",
       "descriptionLong": "SPA application in Vue.js and Laravel API based on 'Le théorème du bien-être' (O. Soria). Generates PDF roadmaps, statistics, mailing, and accessible user experience. Long-term CDA project with clean architecture, design patterns, and secure authentication (Sanctum)."
+    },
+    "lignes": {
+      "title": "Lignes Éternelles",
+      "description": "Showcase website for an artist",
+      "descriptionLong": "Website developed to present the professional activity of a local artist and allow contact. Created with particular attention to accessibility and eco-design."
     }
   }
 }
