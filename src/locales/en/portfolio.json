@@ -33,6 +33,11 @@
       "title": "Lignes Éternelles",
       "description": "Showcase website for an artist",
       "descriptionLong": "Website developed to present the professional activity of a local artist and allow contact. Created with particular attention to accessibility and eco-design."
+    },
+    "creation": {
+      "title": "Freelance website",
+      "description": "Showcase of my web development work",
+      "descriptionLong": "A website I designed to present my work and services. I enjoy building my own projects to learn and experiment, while staying focused on what matters: clarity and efficiency."
     }
   }
 }

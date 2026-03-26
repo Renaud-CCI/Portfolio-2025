@@ -57,6 +57,7 @@ const openProject = (project: Project) => {
 
 const projects: Project[] = [
   { id: 'lignes', image: '/images/portfolio/lignesEternelles.webp', link: 'https://www.ligneseternelles.fr', github: '' },
+  { id: 'creation', image: '/images/portfolio/creationSiteLoire.webp', link: 'https://www.creation-site-loire.fr', github: '' },
   { id: 'shinefulness', image: '/images/portfolio/shinefulness.webp', link: 'https://www.shinefulness.com/', github: '' },
   { id: 'pepe', image: '/images/portfolio/pepelaboulange.webp', link: 'https://www.pepelaboulange.fr/', github: '' },
   { id: 'plantes', image: '/images/portfolio/revisions2plantes.webp', link: 'https://revisions2plantes.vercel.app/', github: 'https://github.com/Renaud-CCI/revisions2plantes' },

@@ -33,6 +33,11 @@
       "title": "Lignes Éternelles",
       "description": "Site vitrine pour artiste",
       "descriptionLong": "Site développé pour présenter l'activité professionnelle d'une artiste locale et permettant la prise de contact. Réalisé avec une attention particulière à l'accessibilité et à l'éco-conception."
+    },
+    "creation": {
+      "title": "Site freelance",
+      "description": "Vitrine de mon activité de développeur web",
+      "descriptionLong": "Un site que j’ai conçu pour présenter mon travail et mes services. J’aime développer mes propres projets pour progresser et expérimenter, tout en restant concentré sur l’essentiel : clarté et efficacité."
     }
   }
 }
