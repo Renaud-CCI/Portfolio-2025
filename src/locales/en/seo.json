@@ -1,0 +1,22 @@
+{
+  "home": {
+    "title": "Renaud Bresson — Full Stack Developer",
+    "description": "Full stack developer: Angular, Java/Spring Boot, Node and Laravel. I build business applications, from the data model through to production."
+  },
+  "about": {
+    "title": "Background and skills — Renaud Bresson",
+    "description": "A career changer after 18 years in medical analysis laboratories, I work across all four layers of an industrial ERP: Angular, Node, Java/Spring and Frappe."
+  },
+  "projects": {
+    "title": "Work — Renaud Bresson",
+    "description": "wikiwa.com, business applications and showcase sites: the projects I designed, built and deployed, each one with its stack."
+  },
+  "services": {
+    "title": "What I work on — Renaud Bresson",
+    "description": "Back end and APIs, accessible interfaces, delivery to production and taking over existing code. What I do, both employed and independent."
+  },
+  "contact": {
+    "title": "Contact — Renaud Bresson",
+    "description": "An opportunity, an assignment or a technical question? Send me a message. Based in Feurs, France, working remotely or hybrid."
+  }
+}

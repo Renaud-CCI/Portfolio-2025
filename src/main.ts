@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify'
 import i18n from './i18n'
 import i18next from 'i18next'
 import FontAwesomeIcon from './plugins/fontawesome'
+import { setupSeo } from './plugins/seo'
 
 const app = i18n(createApp(App))
 
@@ -18,5 +19,7 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(router)
 app.use(vuetify)
+
+setupSeo(router)
 
 app.mount('#app')

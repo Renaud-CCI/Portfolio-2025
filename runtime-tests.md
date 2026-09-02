@@ -155,3 +155,37 @@ Liste `dl` alimentée par `about.skills`.
 
 - **À faire** : parcourir `/`, `/about`, `/projects`, `/services`, `/contact` en français puis en anglais.
 - **Symptôme** : une clé brute affichée à la place d'un texte — i18next n'échoue jamais bruyamment.
+
+---
+
+## Référencement
+
+`src/plugins/seo.ts` pose désormais titre, description, canonique et alternates de langue à chaque navigation et à chaque changement de langue. Les textes viennent de `src/locales/{fr,en}/seo.json`.
+
+### 20. Titre et description par page
+
+- **À faire** : naviguer entre les cinq pages et surveiller le titre de l'onglet, qui doit changer à chaque fois — « Réalisations — Renaud Bresson » sur `/projects`, « Contact — Renaud Bresson » sur `/contact`, etc. Vérifier ensuite dans l'inspecteur que `<meta name="description">` suit.
+- **Symptôme** : titre figé sur celui de l'accueil, ou clé brute `seo.projects.title` affichée dans l'onglet.
+
+### 21. Bascule de langue
+
+- **À faire** : sur `/about`, basculer en anglais sans recharger. Le titre de l'onglet doit passer à « Background and skills — Renaud Bresson » immédiatement.
+- **Symptôme** : le titre reste en français tant qu'on ne change pas de page.
+
+### 22. Canonique et alternates
+
+- **À faire** : dans l'inspecteur, sur `/about` en français, vérifier la présence de :
+  - `<link rel="canonical" href="https://www.renaudbresson.dev/about">`
+  - trois `<link rel="alternate">` en `fr`, `en` et `x-default`
+  
+  Basculer en anglais : la canonique doit devenir `.../about?lng=en`, les alternates rester identiques. Vérifier aussi qu'il n'y a **jamais plus de trois** balises `alternate` après plusieurs bascules successives.
+- **Symptôme** : accumulation de balises `alternate` à chaque changement de langue.
+
+### 23. Entrée directe par URL en anglais
+
+- **À faire** : ouvrir `https://…/about?lng=en` dans un onglet privé. La page doit s'afficher en anglais dès le premier rendu, sans clic.
+- **Symptôme** : page en français malgré le paramètre.
+
+### 24. Sitemap
+
+- **À faire** : ouvrir `/sitemap.xml` et `/robots.txt` sur le serveur de dev, vérifier qu'ils se servent bien et que le sitemap déclare dix URL.
