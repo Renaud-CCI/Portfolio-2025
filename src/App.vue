@@ -12,7 +12,7 @@
 
       <v-btn variant="text" class="d-none d-sm-flex text-capitalize text-body-2 font-weight-medium"
         v-for="link in links" :key="link.text" :to="link.to"
-        :class="{ 'border-b-2 border-secondary': route.path === link.to }">
+        :class="{ 'border-b-2 border-amber-500': route.path === link.to }">
         {{ link.text }}
       </v-btn>
 
@@ -79,12 +79,27 @@ const closeDrawer = () => {
   }, 150)
 }
 
-const currentLanguage = ref<'fr' | 'en'>(i18next.language as 'fr' | 'en')
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 
+const THEME_KEY = 'theme'
+
+function readStoredTheme(): string | null {
+  try {
+    return localStorage.getItem(THEME_KEY)
+  } catch {
+    return null
+  }
+}
+
 function changeTheme() {
-  theme.global.name.value = isDark.value ? 'light' : 'dark'
+  const next = isDark.value ? 'light' : 'dark'
+  theme.global.name.value = next
+  try {
+    localStorage.setItem(THEME_KEY, next)
+  } catch {
+    // navigation privée ou stockage refusé : le choix ne survivra pas au rechargement
+  }
 }
 
 const { t } = useTranslation()
@@ -100,20 +115,17 @@ const links = computed(() => [
 
 const changeLanguage = (lng: string) => {
   i18next.changeLanguage(lng)
-  if (lng === 'fr' || lng === 'en') {
-    currentLanguage.value = lng
-  }
 }
 
-i18next.on('languageChanged', (lng) => {
-  if (lng === 'fr' || lng === 'en') {
-    currentLanguage.value = lng
-  }
-})
-
 onMounted(() => {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-  theme.global.name.value = prefersDark ? 'dark' : 'light'
+  const stored = readStoredTheme()
+  if (stored === 'dark' || stored === 'light') {
+    theme.global.name.value = stored
+    return
+  }
+  theme.global.name.value = window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
 })
 </script>
 

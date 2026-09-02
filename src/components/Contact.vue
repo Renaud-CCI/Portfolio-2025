@@ -55,12 +55,17 @@
             </v-btn>
           </div>
         </div>
+
+        <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-4">
+          {{ t('contact.privacy_notice') }}
+        </p>
       </form>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+defineOptions({ name: 'ContactPage' })
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'
@@ -69,15 +74,5 @@ const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 const { t } = useTranslation()
 </script>
-
-
-<script lang="ts">
-export default {
-  name: 'ContactView',
-  // You can add props, data, methods, etc. here if needed
-  // For example, if you want to use Vuex or Pinia for state management, you can import and use them here.
-};
-</script>
-
 
 <style scoped></style>

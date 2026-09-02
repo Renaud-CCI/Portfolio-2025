@@ -1,6 +1,6 @@
 <template>
   <v-dialog :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)" max-width="600px">
-    <v-card ref="card" class="overflow-hidden">
+    <v-card class="overflow-hidden">
       <v-card-title class="text-xl font-bold text-amber-500">{{ t(`portfolio.projects.${project?.id}.title`)
       }}</v-card-title>
       <v-card-text>
@@ -26,13 +26,11 @@
 
 <script setup lang="ts">
 defineOptions({ name: 'ProjectPopup' })
-import { ref, watch } from 'vue'
 import { useTranslation } from 'i18next-vue'
-import gsap from 'gsap'
 
 const { t } = useTranslation()
 
-const props = defineProps<{
+defineProps<{
   modelValue: boolean
   project: {
     id: string
@@ -42,24 +40,7 @@ const props = defineProps<{
   } | null
 }>()
 
-
-// Définir explicitement les événements émis
 defineEmits<{
   (e: 'update:modelValue', value: boolean): void
 }>()
-
-const card = ref<HTMLElement | null>(null)
-
-watch(
-  () => props.modelValue,
-  (isOpen) => {
-    if (isOpen && card.value) {
-      gsap.fromTo(
-        card.value,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.4, ease: 'power3.out' }
-      )
-    }
-  }
-)
 </script>

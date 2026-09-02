@@ -4,5 +4,6 @@
   "name": "Votre nom",
   "email": "Votre email",
   "message": "Votre message",
-  "submit": "Envoyer"
+  "submit": "Envoyer",
+  "privacy_notice": "Votre nom, votre adresse e-mail et votre message sont transmis à Formspree, un service d'acheminement de formulaires établi aux États-Unis, qui me les relaie par courriel. Ces données ne servent qu'à vous répondre et ne sont ni revendues ni réutilisées à d'autres fins."
 }
