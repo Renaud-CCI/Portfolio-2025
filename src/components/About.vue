@@ -114,7 +114,6 @@ const diplomas = computed(() => {
   }>;
 })
 
-// Compétences par domaine, reprises du CV
 const skills = computed(() => {
   return t('about.skills', { returnObjects: true }) as Array<{
     label: string;

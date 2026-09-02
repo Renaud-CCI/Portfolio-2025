@@ -1,14 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import type { RouteLocationNormalized, RouteLocationNormalizedLoaded } from 'vue-router'
 import Home from '@/components/Home.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  scrollBehavior(
-    to: RouteLocationNormalized,
-    from: RouteLocationNormalizedLoaded,
-    savedPosition?: any,
-  ) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return {
         ...savedPosition,
