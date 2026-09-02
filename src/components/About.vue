@@ -20,7 +20,7 @@
       <p class="text-base md:text-lg mb-10 leading-relaxed">{{ t('about.bio_goals') }}</p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <v-btn color="secondary" :to="'/projects'" class="text-white font-semibold">
+        <v-btn color="secondary" :to="localePath('/projects')" class="text-white font-semibold">
           {{ t('about.view_projects') }}
         </v-btn>
         <v-btn :href="cvPath" target="_blank" variant="outlined" class="border-amber-500 text-amber-500">
@@ -76,7 +76,7 @@
       <p class="text-base md:text-lg mb-6 leading-relaxed">
         {{ t('about.invite_contact') }}
       </p>
-      <v-btn color="secondary" :to="'/contact'" class="text-white font-semibold">
+      <v-btn color="secondary" :to="localePath('/contact')" class="text-white font-semibold">
         {{ t('about.contact_me') }}
       </v-btn>
     </div>
@@ -89,12 +89,14 @@ import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'
 import { useCVPath } from '@/composables/cv'
+import { useLocalePath } from '@/composables/localePath'
 
 const { t } = useTranslation()
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 
 const { cvPath } = useCVPath()
+const { localePath } = useLocalePath()
 
 // Récupérez la timeline depuis les traductions
 const timeline = computed(() => {

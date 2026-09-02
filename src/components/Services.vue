@@ -26,7 +26,7 @@
 
     <!-- CTA -->
     <div class="text-center !mt-16">
-      <v-btn color="secondary" to="/contact" class="text-white font-semibold px-6 py-3">
+      <v-btn color="secondary" :to="localePath('/contact')" class="text-white font-semibold px-6 py-3">
         {{ t('services.cta') }}
       </v-btn>
     </div>
@@ -44,10 +44,12 @@ defineOptions({ name: 'ServicesContainer' })
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'
+import { useLocalePath } from '@/composables/localePath'
 
 const { t } = useTranslation()
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
+const { localePath } = useLocalePath()
 
 const serviceKeys = ['backend', 'frontend', 'delivery', 'maintenance']
 </script>

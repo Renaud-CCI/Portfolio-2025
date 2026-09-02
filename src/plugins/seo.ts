@@ -1,5 +1,6 @@
 import i18next from 'i18next'
 import type { Router } from 'vue-router'
+import { langFromPath, pathForLang } from '@/lang-path'
 
 const SITE_URL = 'https://www.renaudbresson.dev'
 
@@ -32,10 +33,11 @@ function setCanonical(href: string) {
 function setAlternates(path: string) {
   document.head.querySelectorAll('link[rel="alternate"]').forEach((el) => el.remove())
 
+  const french = `${SITE_URL}${pathForLang(path, 'fr')}`
   const alternates: Array<[string, string]> = [
-    ['fr', `${SITE_URL}${path}`],
-    ['en', `${SITE_URL}${path}?lng=en`],
-    ['x-default', `${SITE_URL}${path}`],
+    ['fr', french],
+    ['en', `${SITE_URL}${pathForLang(path, 'en')}`],
+    ['x-default', french],
   ]
 
   for (const [hreflang, href] of alternates) {
@@ -51,8 +53,8 @@ export function setupSeo(router: Router) {
   const apply = () => {
     const route = router.currentRoute.value
     const name = typeof route.name === 'string' ? route.name : 'home'
-    const isEnglish = i18next.language.startsWith('en')
     const path = route.path
+    const lang = langFromPath(path)
 
     const title = i18next.t(`seo.${name}.title`)
     const description = i18next.t(`seo.${name}.description`)
@@ -62,14 +64,13 @@ export function setupSeo(router: Router) {
     setMeta('property', 'og:title', title)
     setMeta('property', 'og:description', description)
     setMeta('property', 'og:url', `${SITE_URL}${path}`)
-    setMeta('property', 'og:locale', isEnglish ? 'en_GB' : 'fr_FR')
+    setMeta('property', 'og:locale', lang === 'en' ? 'en_GB' : 'fr_FR')
     setMeta('name', 'twitter:title', title)
     setMeta('name', 'twitter:description', description)
-    setCanonical(isEnglish ? `${SITE_URL}${path}?lng=en` : `${SITE_URL}${path}`)
+    setCanonical(`${SITE_URL}${path}`)
     setAlternates(path)
   }
 
   router.afterEach(apply)
-  i18next.on('languageChanged', apply)
   void router.isReady().then(apply)
 }

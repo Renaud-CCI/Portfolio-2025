@@ -12,11 +12,9 @@
 
       <!-- Liens internes -->
       <nav class="flex flex-wrap justify-center gap-4 text-sm">
-        <RouterLink to="/" class="hover:underline">{{ t('nav.home') }}</RouterLink>
-        <RouterLink to="/about" class="hover:underline">{{ t('nav.about') }}</RouterLink>
-        <RouterLink to="/projects" class="hover:underline">{{ t('nav.projects') }}</RouterLink>
-        <RouterLink to="/services" class="hover:underline">{{ t('nav.services') }}</RouterLink>
-        <RouterLink to="/contact" class="hover:underline">{{ t('nav.contact') }}</RouterLink>
+        <RouterLink v-for="link in links" :key="link.to" :to="link.to" class="hover:underline">
+          {{ link.text }}
+        </RouterLink>
       </nav>
 
       <!-- Réseaux + CV -->
@@ -50,6 +48,7 @@ import { useTranslation } from 'i18next-vue'
 import { RouterLink } from 'vue-router'
 import { mdiLinkedin, mdiGithub, mdiEmailOutline } from '@mdi/js'
 import { useCVPath } from '@/composables/cv'
+import { useLocalePath } from '@/composables/localePath'
 
 const { cvPath } = useCVPath()
 
@@ -58,6 +57,18 @@ const { t } = useTranslation()
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 const year = new Date().getFullYear()
+
+const { localePath } = useLocalePath()
+
+const links = computed(() =>
+  [
+    { text: t('nav.home'), path: '/' },
+    { text: t('nav.about'), path: '/about' },
+    { text: t('nav.projects'), path: '/projects' },
+    { text: t('nav.services'), path: '/services' },
+    { text: t('nav.contact'), path: '/contact' },
+  ].map((link) => ({ text: link.text, to: localePath(link.path) })),
+)
 
 onMounted(() => {
   const existing = document.querySelector('script[data-ecoindex]') as HTMLScriptElement | null

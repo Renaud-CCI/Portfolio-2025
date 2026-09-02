@@ -19,11 +19,11 @@
           </h2>
           <div ref="heroButtons" class="anim-item flex flex-col sm:flex-row gap-4 justify-center items-center">
             <v-btn color="secondary" class="font-semibold text-white text-base px-4 w-1/2 sm:w-auto min-w-0"
-              to="/projects">
+              :to="localePath('/projects')">
               {{ t('nav.view_projects') }}
             </v-btn>
             <v-btn variant="outlined" class="font-semibold text-white text-base border-white px-4 w-1/2 sm:w-auto min-w-0"
-              to="/contact">
+              :to="localePath('/contact')">
               {{ t('nav.contact_me') }}
             </v-btn>
           </div>
@@ -54,7 +54,7 @@
         <p class="anim-item text-base md:text-lg mb-6 leading-relaxed">
           {{ t('home.about_text') }}
         </p>
-        <v-btn color="secondary" :to="'/about'" class="anim-item text-white font-semibold">
+        <v-btn color="secondary" :to="localePath('/about')" class="anim-item text-white font-semibold">
           {{ t('home.about_cta') }}
         </v-btn>
         <v-btn :href="cvPath" target="_blank" variant="outlined"
@@ -77,7 +77,7 @@
         <p class="anim-item text-base md:text-lg mb-6 leading-relaxed">
           {{ t('home.projects_text') }}
         </p>
-        <v-btn color="secondary" :to="'/projects'" class="anim-item text-white font-semibold">
+        <v-btn color="secondary" :to="localePath('/projects')" class="anim-item text-white font-semibold">
           {{ t('home.projects_cta') }}
         </v-btn>
       </div>
@@ -108,7 +108,7 @@
         <p class="anim-item text-base md:text-lg mb-6 leading-relaxed">
           {{ t('home.services_text') }}
         </p>
-        <v-btn color="secondary" :to="'/services'" class="anim-item text-white font-semibold">
+        <v-btn color="secondary" :to="localePath('/services')" class="anim-item text-white font-semibold">
           {{ t('home.services_cta') }}
         </v-btn>
       </div>
@@ -127,7 +127,7 @@
         <p class="anim-item text-base md:text-lg mb-6 leading-relaxed">
           {{ t('home.contact_text') }}
         </p>
-        <v-btn color="secondary" :to="'/contact'" class="anim-item text-white font-semibold">
+        <v-btn color="secondary" :to="localePath('/contact')" class="anim-item text-white font-semibold">
           {{ t('home.contact_cta') }}
         </v-btn>
       </div>
@@ -147,12 +147,14 @@ import { useTranslation } from 'i18next-vue'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useTheme } from 'vuetify'
 import { useCVPath } from '@/composables/cv'
+import { useLocalePath } from '@/composables/localePath'
 
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 const { t } = useTranslation()
 
 const { cvPath } = useCVPath()
+const { localePath } = useLocalePath()
 
 const parallaxBg = ref<HTMLElement | null>(null)
 const heroTitle = ref<HTMLElement | null>(null)

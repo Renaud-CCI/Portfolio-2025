@@ -5,14 +5,14 @@
       <v-app-bar-nav-icon @click="drawer = !drawer" class="d-sm-none" />
 
       <v-toolbar-title class="text-h5 font-weight-bold">
-        <RouterLink to="/" class="text-white text-decoration-none">
+        <RouterLink :to="localePath('/')" class="text-white text-decoration-none">
           Renaud Bresson
         </RouterLink>
       </v-toolbar-title>
 
       <v-btn variant="text" class="d-none d-sm-flex text-capitalize text-body-2 font-weight-medium"
         v-for="link in links" :key="link.text" :to="link.to"
-        :class="{ 'border-b-2 border-amber-500': route.path === link.to }">
+        :class="{ 'nav-active': route.path === link.to }">
         {{ link.text }}
       </v-btn>
 
@@ -62,13 +62,16 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { ref, computed, onMounted } from 'vue'
 import { useTranslation } from 'i18next-vue'
-import i18next from 'i18next'
 import { useTheme } from 'vuetify'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { mdiCog } from '@mdi/js'
+import { pathForLang, type Lang } from '@/lang-path'
+import { useLocalePath } from '@/composables/localePath'
 import Footer from './components/Footer.vue'
 
 const route = useRoute()
+const router = useRouter()
+const { localePath } = useLocalePath()
 
 const drawer = ref(false)
 const settingsMenu = ref(false)
@@ -104,17 +107,18 @@ function changeTheme() {
 
 const { t } = useTranslation()
 
-const links = computed(() => [
-  { text: t('nav.home'), to: '/' },
-  { text: t('nav.about'), to: '/about' },
-  { text: t('nav.projects'), to: '/projects' },
-  { text: t('nav.services'), to: '/services' },
-  { text: t('nav.contact'), to: '/contact' },
-])
+const links = computed(() =>
+  [
+    { text: t('nav.home'), path: '/' },
+    { text: t('nav.about'), path: '/about' },
+    { text: t('nav.projects'), path: '/projects' },
+    { text: t('nav.services'), path: '/services' },
+    { text: t('nav.contact'), path: '/contact' },
+  ].map((link) => ({ text: link.text, to: localePath(link.path) })),
+)
 
-
-const changeLanguage = (lng: string) => {
-  i18next.changeLanguage(lng)
+const changeLanguage = (lng: Lang) => {
+  void router.push(pathForLang(route.path, lng))
 }
 
 onMounted(() => {
@@ -129,4 +133,10 @@ onMounted(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+/* Hors couche CSS, donc prioritaire sur Vuetify : un utilitaire Tailwind,
+   émis dans @layer utilities, perdrait contre .v-btn. */
+.nav-active {
+  border-bottom: 2px solid rgb(var(--v-theme-secondary));
+}
+</style>
