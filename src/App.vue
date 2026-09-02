@@ -21,7 +21,7 @@
         <template v-slot:activator="{ props }">
           <v-btn icon v-bind="props" :aria-label="t('nav.settings')" :title="t('nav.settings')" aria-haspopup="menu"
             :aria-expanded="settingsMenu" aria-controls="settings-menu">
-            <v-icon aria-hidden="true">mdi-cog</v-icon>
+            <v-icon :icon="mdiCog" aria-hidden="true" />
           </v-btn>
         </template>
         <v-list id="settings-menu">
@@ -65,6 +65,7 @@ import { useTranslation } from 'i18next-vue'
 import i18next from 'i18next'
 import { useTheme } from 'vuetify'
 import { useRoute } from 'vue-router'
+import { mdiCog } from '@mdi/js'
 import Footer from './components/Footer.vue'
 
 const route = useRoute()

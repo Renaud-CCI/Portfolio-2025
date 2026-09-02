@@ -24,13 +24,13 @@
         <div class="flex gap-4 text-xl">
           <a href="https://www.linkedin.com/in/renaud-bresson/" target="_blank" title="LinkedIn"
             class="hover:text-amber-500">
-            <v-icon icon="mdi-linkedin" />
+            <v-icon :icon="mdiLinkedin" />
           </a>
           <a href="https://github.com/Renaud-CCI" target="_blank" title="GitHub" class="hover:text-amber-500">
-            <v-icon icon="mdi-github" />
+            <v-icon :icon="mdiGithub" />
           </a>
           <a href="mailto:contact@renaudbresson.dev" title="Email" class="hover:text-amber-500">
-            <v-icon icon="mdi-email-outline" />
+            <v-icon :icon="mdiEmailOutline" />
           </a>
         </div>
         <v-btn :href="cvPath" target="_blank" variant="outlined"
@@ -48,6 +48,7 @@ import { computed, onMounted } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'
 import { RouterLink } from 'vue-router'
+import { mdiLinkedin, mdiGithub, mdiEmailOutline } from '@mdi/js'
 import { useCVPath } from '@/composables/cv'
 
 const { cvPath } = useCVPath()

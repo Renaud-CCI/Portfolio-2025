@@ -45,28 +45,36 @@ Les 19 composants à voir au moins une fois, avec l'endroit où les trouver :
 - **À faire** : ouvrir la console du navigateur et parcourir le site. Rechercher tout message `Failed to resolve component`.
 - **Symptôme** : un élément d'interface absent, sans erreur bloquante — le reste de la page continue de s'afficher normalement.
 
-### 3. Langue des deux CV téléchargeables
+### 3. Icônes après suppression de la police Material Design
+
+`@mdi/font` (403 ko de woff2) est remplacé par `@mdi/js` et le jeu `mdi-svg` : les icônes sont désormais des tracés SVG intégrés au bundle. Quatre icônes sont explicites dans le code, les autres passent par les alias internes de Vuetify.
+
+- **À faire** : vérifier les quatre icônes explicites — l'**engrenage** de la barre supérieure, puis **LinkedIn**, **GitHub** et **l'enveloppe** dans le pied de page. Vérifier ensuite le **hamburger** en dessous de `sm`, qui passe lui par un alias Vuetify (`$menu`) et non par un import explicite.
+- **Symptôme** : icône absente, carré vide, ou glyphe de remplacement à la place du pictogramme.
+- **En cas d'échec** : `git revert` du commit « perf / remplace la police mdi par des tracés SVG » suffit à revenir en arrière, il est isolé.
+
+### 4. Langue des deux CV téléchargeables
 
 `public/RenaudBresson_CV_fr.pdf` et `public/RenaudBresson_CV_en.pdf` ont été remplacés par les impressions PDF des sources HTML. Ces fichiers ne portent aucune métadonnée de langue : l'association repose uniquement sur le suffixe des fichiers d'origine, invérifiable sans les ouvrir.
 
 - **À faire** : basculer le site en français, télécharger le CV depuis le pied de page, vérifier qu'il est en français. Recommencer en anglais.
 - **Symptôme** : les deux PDF sont intervertis.
 
-### 4. Bloc « Compétences » de la page À propos
+### 5. Bloc « Compétences » de la page À propos
 
 Nouveau markup introduit avec les contenus du CV 2026 (`src/components/About.vue`, liste `dl` alimentée par `about.skills`).
 
 - **À faire** : ouvrir `/about` et vérifier que les six domaines s'affichent en deux colonnes (libellé à gauche, contenu à droite) au-dessus du point de rupture `md`, et empilés en une colonne en dessous.
 - **Symptôme** : libellés et contenus qui se chevauchent, ou colonne de gauche écrasée.
 
-### 5. Page Services après renommage de clé
+### 6. Page Services après renommage de clé
 
 La quatrième carte « Collaboration & freelance » a été remplacée par « Mise en production » (clé `collaboration` → `delivery`, `src/components/Services.vue`).
 
 - **À faire** : ouvrir `/services`, compter quatre cartes, vérifier que la troisième est bien « Mise en production » et qu'aucune n'affiche une clé brute du type `services.items.delivery.title`.
 - **Symptôme d'une clé non résolue** : le texte affiché est la clé elle-même, i18next n'échoue jamais bruyamment.
 
-### 6. Les deux langues, sur les cinq pages
+### 7. Les deux langues, sur les cinq pages
 
 La refonte des contenus a touché les six fichiers de locale, en français comme en anglais.
 

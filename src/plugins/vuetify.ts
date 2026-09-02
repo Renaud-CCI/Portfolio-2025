@@ -1,15 +1,16 @@
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
-import '@mdi/font/css/materialdesignicons.css'
-
-// Composants et directives sont importés à la demande par vite-plugin-vuetify
-// (voir vite.config.ts) : ne pas rétablir d'import global ici.
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 
 const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
 
 export default createVuetify({
   icons: {
     defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi,
+    },
   },
   theme: {
     defaultTheme: prefersDark ? 'dark' : 'light',
