@@ -1,22 +1,22 @@
 {
-  "title": "My services",
-  "intro": "I work on web projects as a back-end or full stack developer, whether for freelance assignments or to strengthen a team. I value solid foundations, clean code, and efficient tools.",
+  "title": "What I work on",
+  "intro": "I work across every layer of a business application, from the data model through to production. These areas match what I practise day to day, both in my job and as an independent developer.",
   "items": {
     "backend": {
-      "title": "Back-end development",
-      "description": "Creation of secure REST APIs, business platforms, or internal tools, mainly with Laravel, SQL, and a structured architecture."
+      "title": "Back end and APIs",
+      "description": "REST APIs and business logic in Laravel, Java 21 / Spring Boot or Node.js / Express. SQL data modelling (PostgreSQL, MySQL), hexagonal architecture, authentication through Keycloak (OAuth2, OIDC)."
     },
     "frontend": {
-      "title": "Front-end integration",
-      "description": "Responsive and maintainable interfaces in Vue.js, HTML/CSS (or Tailwind), with a focus on eco-conception, accessibility and usability."
+      "title": "Interfaces",
+      "description": "Angular 21 and Vue.js applications, styled with Tailwind and shadcn. Reusable components versioned as a design system, WCAG 2.1 AA accessibility and low-footprint design."
+    },
+    "delivery": {
+      "title": "Delivery and production",
+      "description": "Linux VPS administration, Docker containers, continuous deployment through GitLab CI or GitHub Actions, database migrations and automated testing (Vitest, JUnit, Pest)."
     },
     "maintenance": {
-      "title": "Maintenance & improvements",
-      "description": "Enhancement of existing projects: refactoring, debugging, adding features, or gradual migration to a more modern architecture."
-    },
-    "collaboration": {
-      "title": "Collaboration & freelance",
-      "description": "Available for one-off or ongoing assignments, with partial remote work. I bring rigor, autonomy, and adaptability."
+      "title": "Taking over existing code",
+      "description": "Gradual rework of ageing code bases, fixes in production, new features, and introducing tests to code that never had any."
     }
   },
   "cta": "Contact me"

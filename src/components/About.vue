@@ -13,20 +13,7 @@
       <h2 class="text-amber-500 text-xl md:text-2xl font-semibold mb-6">{{ t('about.subtitle') }}</h2>
 
       <p class="text-base md:text-lg mb-6 leading-relaxed">{{ t('about.bio_intro') }}</p>
-      <p class="text-base md:text-lg mb-6 leading-relaxed" v-html="t('about.bio_skills', {
-        laravel: '<strong>Laravel</strong>',
-        vue: '<strong>Vue.js</strong>',
-        sql: '<strong>SQL</strong>',
-        php: '<strong>PHP natif</strong>',
-        tailwind: '<strong>Tailwind CSS</strong>',
-        wordpress: '<strong>WordPress</strong>',
-        symfony: '<strong>Symfony</strong>',
-        typescript: '<strong>TypeScript</strong>',
-        reactNative: '<strong>React Native</strong>',
-        git: '<strong>Git</strong>',
-        notion: '<strong>Notion</strong>',
-        trello: '<strong>Trello</strong>'
-      })"></p>
+      <p class="text-base md:text-lg mb-6 leading-relaxed">{{ t('about.bio_today') }}</p>
       <p class="text-base md:text-lg mb-6 leading-relaxed">{{ t('about.bio_location') }}</p>
       <p class="text-base md:text-lg mb-6 leading-relaxed"
         v-html="t('about.bio_rqth', { rqth: '<strong>RQTH</strong>' })"></p>
@@ -40,6 +27,17 @@
           {{ t('about.download_cv') }}
         </v-btn>
       </div>
+    </div>
+
+    <!-- Compétences -->
+    <div class="mt-20 max-w-4xl mx-auto">
+      <h3 class="text-2xl font-bold mb-10 mt-10 text-center">🧰 {{ t('about.skills_title') }}</h3>
+      <dl class="space-y-6">
+        <div v-for="group in skills" :key="group.label" class="md:grid md:grid-cols-[14rem_1fr] md:gap-6">
+          <dt class="font-semibold text-teal-600 mb-1 md:mb-0">{{ group.label }}</dt>
+          <dd class="text-base text-gray-700 dark:text-gray-300">{{ group.items }}</dd>
+        </div>
+      </dl>
     </div>
 
     <!-- Diplômes -->
@@ -113,6 +111,14 @@ const diplomas = computed(() => {
     date: string;
     title: string;
     description: string;
+  }>;
+})
+
+// Compétences par domaine, reprises du CV
+const skills = computed(() => {
+  return t('about.skills', { returnObjects: true }) as Array<{
+    label: string;
+    items: string;
   }>;
 })
 </script>

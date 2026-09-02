@@ -1,22 +1,22 @@
 {
-  "title": "Mes services",
-  "intro": "J’interviens sur des projets web en back-end ou full stack, que ce soit dans le cadre d’une mission freelance ou pour renforcer une équipe. J’aime les bases solides, le code propre et les outils efficaces.",
+  "title": "Ce sur quoi j'interviens",
+  "intro": "Je travaille sur l'ensemble des couches d'une application métier, du modèle de données à la mise en production. Ces domaines correspondent à ce que je pratique au quotidien, en poste comme en indépendant.",
   "items": {
     "backend": {
-      "title": "Développement back-end",
-      "description": "Création d’API REST sécurisées, plateformes métiers ou outils internes, principalement avec Laravel, SQL et une architecture structurée."
+      "title": "Back-end et API",
+      "description": "API REST et logique métier en Laravel, Java 21 / Spring Boot ou Node.js / Express. Modélisation de données SQL (PostgreSQL, MySQL), architecture hexagonale, authentification par Keycloak (OAuth2, OIDC)."
     },
     "frontend": {
-      "title": "Intégration front-end",
-      "description": "Interfaces responsives et maintenables en Vue.js, HTML/CSS (ou Tailwind), avec focus sur l'éco-conception, l’accessibilité et l’ergonomie."
+      "title": "Interfaces",
+      "description": "Applications Angular 21 et Vue.js, mises en forme avec Tailwind et shadcn. Composants réutilisables versionnés en design system, accessibilité WCAG 2.1 AA et éco-conception."
+    },
+    "delivery": {
+      "title": "Mise en production",
+      "description": "Administration de VPS Linux, conteneurs Docker, déploiement continu par GitLab CI ou GitHub Actions, migrations de base de données et tests automatisés (Vitest, JUnit, Pest)."
     },
     "maintenance": {
-      "title": "Maintenance & évolutions",
-      "description": "Amélioration de projets existants : refactorisation, debug, ajout de fonctionnalités ou migration progressive vers une architecture plus moderne."
-    },
-    "collaboration": {
-      "title": "Collaboration & freelance",
-      "description": "Disponible pour des missions ponctuelles ou continues, avec télétravail partiel. J’apporte rigueur, autonomie et adaptabilité."
+      "title": "Reprise d'existant",
+      "description": "Refonte progressive de bases anciennes, correction en production, ajout de fonctionnalités et introduction de tests sur du code qui n'en avait pas."
     }
   },
   "cta": "Me contacter"

@@ -49,5 +49,5 @@ const { t } = useTranslation()
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 
-const serviceKeys = ['backend', 'frontend', 'maintenance', 'collaboration']
+const serviceKeys = ['backend', 'frontend', 'delivery', 'maintenance']
 </script>

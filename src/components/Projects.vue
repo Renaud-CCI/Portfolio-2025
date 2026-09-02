@@ -56,6 +56,7 @@ const openProject = (project: Project) => {
 }
 
 const projects: Project[] = [
+  { id: 'wikiwa', image: '/images/portfolio/wikiwa.webp', link: 'https://wikiwa.com', github: '' },
   { id: 'lignes', image: '/images/portfolio/lignesEternelles.webp', link: 'https://www.ligneseternelles.fr', github: '' },
   { id: 'creation', image: '/images/portfolio/creationSiteLoire.webp', link: 'https://www.creation-site-loire.fr', github: '' },
   { id: 'shinefulness', image: '/images/portfolio/shinefulness.webp', link: 'https://www.shinefulness.com/', github: '' },

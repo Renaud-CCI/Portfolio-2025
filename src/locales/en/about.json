@@ -1,59 +1,87 @@
 {
   "title": "About Me",
-  "subtitle": "Curious Developer and Logical Gardener",
-  "bio_intro": "After a career change from laboratory work, I now design web applications with precision, structure, and passion. My atypical background taught me to observe, understand, and then create.",
-  "bio_skills": "I mainly develop with {{laravel}}, {{vue}}, and have strong skills in {{sql}}, {{php}}, and {{tailwind}}. I have also worked with {{wordpress}}, {{symfony}}, {{typescript}}, and {{reactNative}} as needed for projects. I value code clarity (SOLID, design patterns), good documentation, and enjoy tools that facilitate teamwork like {{git}}, {{notion}}, or {{trello}}.",
-  "bio_location": "Based in the Loire (42), I am available for remote work or on-site around Feurs, Roanne, Saint-Étienne, Lyon, or any other opportunity that matches my values...",
+  "subtitle": "Full stack developer, former laboratory technician",
+  "bio_intro": "Eighteen years in medical analysis and food safety laboratories, several of them as a quality officer, before a complete career change into software. That path is not a detour: it taught me procedure, traceability and how to read a trade from the inside — exactly what you want from someone designing tools for other people.",
+  "bio_today": "I currently work across all four layers of an industrial ERP: Angular front end, Node middleware, Java/Spring back end and a Frappe ERP. Alongside that, I design and operate wikiwa.com, a TV series recommendation platform running in production, as a self-employed developer.",
+  "bio_location": "Based in Feurs, in the Loire (42), France. I work remotely or hybrid.",
   "bio_rqth": "My profile includes an {{rqth}}, which simply means I need a hybrid work organization (partial remote or sedentary position), with no impact on my skills or commitment. I am autonomous, rigorous, and comfortable working both in a team and independently.",
-  "bio_goals": "I am looking for meaningful, sustainable, and logical projects. My goal is to write code that serves concrete, human, or ecological ideas.",
-  "view_projects": "View my projects",
+  "bio_goals": "I look for projects where software serves a real trade: internal tools, business applications, platforms meant to be operated over time. The code that interests me is the code you can reread six months later without dreading it.",
+  "view_projects": "See my work",
   "download_cv": "Download my CV",
   "ready_to_talk": "Ready to chat?",
   "invite_contact": "Let's discuss your needs, ideas, or projects to develop.",
   "contact_me": "Contact me",
+  "skills_title": "Skills",
+  "skills": [
+    {
+      "label": "Daily",
+      "items": "TypeScript · Angular 21 · PHP / Laravel · Vue.js · SQL (PostgreSQL, MySQL)"
+    },
+    {
+      "label": "Professional use",
+      "items": "Java 21 / Spring Boot · Node.js / Express · Python (Frappe / ERPNext) · Keycloak (OAuth2, OIDC) · Symfony (working knowledge)"
+    },
+    {
+      "label": "Front end",
+      "items": "Tailwind · shadcn · Design system · Figma · Accessibility (WCAG 2.1 AA)"
+    },
+    {
+      "label": "Delivery",
+      "items": "Linux VPS deployment and administration · Docker · Git · CI/CD (GitLab CI, GitHub Actions) · Testing (Vitest, JUnit, Pest) · Code review"
+    },
+    {
+      "label": "Compliance & SEO",
+      "items": "GDPR (consent management, legal notices) · Server-side rendering for search indexing and link previews"
+    },
+    {
+      "label": "Languages",
+      "items": "French — native · English — professional working proficiency (CEFR B2)"
+    }
+  ],
   "timeline_title": "My Journey",
   "timeline": [
     {
-      "date": "Today",
-      "title": "Open to new opportunities",
-      "description": "Freelance, part-time mission, or back/front dev position (partial remote possible)."
+      "date": "Since May 2026",
+      "title": "Full Stack Developer — EP MECA, Feurs, France",
+      "description": "Custom industrial ERP, built in-house by a five-person team including three developers. Angular 21 front end with a signal-based architecture on the purchasing, inventory and quality screens; Node / Express middleware; Java 21 / Spring Boot back end in a multi-tenant hexagonal architecture; Frappe / ERPNext layer in Python. Contribution to the in-house design system, testing, code review and GitLab continuous integration."
     },
     {
       "date": "Since 2024",
-      "title": "Shinefulness® – Full stack missions remote",
-      "description": "Setup, maintenance, and evolution of the Shinefulness® platform in Laravel API + VueJs.",
-      "contact": "https://www.linkedin.com/in/olivier-soria/"
+      "title": "Independent Developer — self-employed",
+      "description": "wikiwa.com since May 2026: a TV series recommendation platform live in production, designed, built, deployed and operated single-handedly. Previously Shinefulness (2024 – 2026): a Laravel REST API and a Vue.js application, from data modelling through to maintenance."
     },
     {
       "date": "2024 - 2025",
-      "title": "Work-study CDA at M2M Financement - St Etienne",
-      "description": "Development of business platforms, autonomy on key features. Improved architecture and integration of OOP and design patterns in a native procedural PHP environment.",
-      "contact": "https://www.linkedin.com/in/aurelienlievin/"
+      "title": "Software Developer Apprentice — M2M Financement, Saint-Étienne",
+      "description": "Rebuilt an internal ERP and an e-commerce site in vanilla PHP and JavaScript. Developed business features, fixed bugs in production and wrote end-user training materials."
     },
     {
-      "date": "2024",
-      "title": "Internship at Garage404 - Roanne",
-      "description": "Updated training materials, contributed to new modules, developed internal tools for the team.",
-      "contact": "https://www.linkedin.com/in/%F0%9F%92%A5florent-ferlay-52134b171/"
+      "date": "2023 - 2024",
+      "title": "Internships — HighDay and Garage404",
+      "description": "Vue.js front-end work against UI designs at HighDay (Saint-Étienne), then internal tools and training materials at Garage404 (Roanne)."
     },
     {
-      "date": "2023",
-      "title": "Internship at HighDay - St Etienne",
-      "description": "Front-end internship in VueJs, developed according to UI designs, integrated components, and fixed bugs.",
-      "contact": "https://www.linkedin.com/in/remi-de-almeida/"
+      "date": "2003 - 2021",
+      "title": "Laboratory Technician — medical analysis and food safety",
+      "description": "Quality officer and employee representative: procedures, traceability, audits. The shop-floor experience I now build software for."
     }
   ],
   "diplomas_title": "Degrees and Certifications",
   "diplomas": [
     {
-      "date": "June 2025",
-      "title": "Application Developer Designer (CDA)",
-      "description": "Bachelor's level work-study program at M2M Financement. Worked on business platforms, APIs, and back-end logic."
+      "date": "2025",
+      "title": "Application Designer & Developer (CDA)",
+      "description": "French professional degree, RNCP Level 6 (Bachelor's equivalent), completed through an apprenticeship at M2M Financement."
     },
     {
-      "date": "November 2023",
-      "title": "Professional Title DWWM",
-      "description": "Web and Mobile Web Developer – intensive 12-month training, fullstack projects, and best front/back practices."
+      "date": "2023",
+      "title": "Web and Mobile Web Developer (DWWM)",
+      "description": "French professional certification, RNCP Level 5, a 12-month intensive course covering full stack front and back end projects."
+    },
+    {
+      "date": "Since 2021",
+      "title": "Continuous learning and technology watch",
+      "description": "Ongoing work on frameworks, application architecture and delivery practices."
     }
   ]
 }

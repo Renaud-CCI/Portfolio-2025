@@ -1,59 +1,87 @@
 {
   "title": "À propos de moi",
-  "subtitle": "Développeur curieux et jardinier logique",
-  "bio_intro": "Après une reconversion depuis les laboratoires, je conçois aujourd’hui des applications web avec précision, structure et passion. Mon parcours atypique m’a appris à observer, comprendre, puis créer.",
-  "bio_skills": "Je développe principalement avec {{laravel}}, {{vue}}, et maîtrise bien {{sql}}, {{php}} et {{tailwind}}. J’ai également eu l’occasion de travailler avec {{wordpress}}, {{symfony}}, {{typescript}} ou {{reactNative}}, selon les besoins des projets. J’attache beaucoup d’importance à la clarté du code (SOLID, design patterns), à une bonne documentation, et j’apprécie les outils qui facilitent le travail d’équipe comme {{git}}, {{notion}} ou {{trello}}.",
-  "bio_location": "Basé dans la Loire (42), je suis disponible en télétravail ou sur site autour de Feurs, Roanne, Saint-Étienne, Lyon ou toute autre opportunité correspondante à mes valeurs…",
+  "subtitle": "Développeur full stack, ancien technicien de laboratoire",
+  "bio_intro": "Dix-huit ans en laboratoire d'analyses médicales et d'hygiène alimentaire, dont plusieurs comme correspondant qualité, avant une reconversion complète vers le développement. Ce parcours n'est pas un détour : il m'a appris la procédure, la traçabilité et la lecture d'un métier de l'intérieur — exactement ce qu'on attend de quelqu'un qui conçoit des outils pour d'autres.",
+  "bio_today": "J'interviens aujourd'hui sur les quatre couches d'un ERP industriel : front Angular, middleware Node, backend Java/Spring et ERP Frappe. En parallèle, je conçois et j'exploite wikiwa.com, une plateforme de recommandation de séries en production, sous statut auto-entrepreneur.",
+  "bio_location": "Basé à Feurs, dans la Loire (42). Je travaille en télétravail ou en hybride.",
   "bio_rqth": "Mon profil inclut une {{rqth}} et implique simplement un besoin d'organisation hybride (télétravail partiel ou poste sédentarisé), sans impact sur mes compétences ou mon implication. Je suis autonome, rigoureux et à l'aise pour travailler en équipe comme en solo.",
-  "bio_goals": "Je cherche des missions utiles, durables et logiques. Mon objectif est d’écrire du code au service d’idées concrètes, humaines, ou écologiques.",
-  "view_projects": "Voir mes projets",
+  "bio_goals": "Je cherche des projets où le logiciel sert un métier réel : outils internes, applications de gestion, plateformes à exploiter dans la durée. Le code qui m'intéresse est celui qu'on relit six mois plus tard sans le craindre.",
+  "view_projects": "Voir mes réalisations",
   "download_cv": "Télécharger mon CV",
   "ready_to_talk": "Envie d'échanger ?",
   "invite_contact": "Discutons de vos besoins, de vos idées ou de vos projets à développer.",
   "contact_me": "Me contacter",
+  "skills_title": "Compétences",
+  "skills": [
+    {
+      "label": "Au quotidien",
+      "items": "TypeScript · Angular 21 · PHP / Laravel · Vue.js · SQL (PostgreSQL, MySQL)"
+    },
+    {
+      "label": "En contexte professionnel",
+      "items": "Java 21 / Spring Boot · Node.js / Express · Python (Frappe / ERPNext) · Keycloak (OAuth2, OIDC) · Symfony (notions)"
+    },
+    {
+      "label": "Interface",
+      "items": "Tailwind · shadcn · Design system · Figma · Accessibilité (WCAG 2.1 AA)"
+    },
+    {
+      "label": "Mise en production",
+      "items": "Déploiement et administration VPS Linux · Docker · Git · CI/CD (GitLab CI, GitHub Actions) · Tests (Vitest, JUnit, Pest) · Revue de code"
+    },
+    {
+      "label": "Conformité & SEO",
+      "items": "RGPD (consentement, mentions légales) · Rendu serveur pour l'indexation et les aperçus de partage"
+    },
+    {
+      "label": "Langues",
+      "items": "Français — langue maternelle · Anglais — B2 (lu, écrit, parlé)"
+    }
+  ],
   "timeline_title": "Mon parcours",
   "timeline": [
     {
-      "date": "Aujourd’hui",
-      "title": "Ouvert à de nouvelles opportunités",
-      "description": "Freelance, mission partielle ou poste dev back/front (télétravail partiel possible)."
+      "date": "Depuis mai 2026",
+      "title": "Développeur full stack — EP MECA, Feurs (42)",
+      "description": "ERP industriel sur mesure, développé en interne par une équipe de 5, dont 3 développeurs. Front Angular 21 en architecture par signaux sur les écrans achats, stock et qualité ; middleware Node / Express ; backend Java 21 / Spring Boot en architecture hexagonale multi-tenant ; couche Frappe / ERPNext en Python. Contribution au design system interne, tests, revue de code et intégration continue GitLab."
     },
     {
       "date": "Depuis 2024",
-      "title": "Shinefulness® – Missions full stack en remote",
-      "description": "Mise en place, maintenance et évolution de la plateforme Shinefulness® en API Laravel + VueJs.",
-      "contact": "https://www.linkedin.com/in/olivier-soria/"
+      "title": "Développeur indépendant — auto-entrepreneur",
+      "description": "wikiwa.com depuis mai 2026 : plateforme de recommandation de séries en production, conçue, développée, déployée et exploitée en autonomie. Auparavant Shinefulness (2024 – 2026) : API REST Laravel et application Vue.js, de la modélisation des données à la maintenance."
     },
     {
       "date": "2024 - 2025",
-      "title": "Alternance en CDA chez M2M Financement - St Etienne",
-      "description": "Développement de plateformes métier, autonomie sur des fonctionnalités clés. Amélioration de l'architecture et intégration de POO et design patterns dans un environnement en PHP natif procédural.",
-      "contact": "https://www.linkedin.com/in/aurelienlievin/"
+      "title": "Alternant Concepteur Développeur d'Applications — M2M Financement, Saint-Étienne",
+      "description": "Refonte d'un ERP interne et d'un site marchand en PHP natif et JavaScript. Développement de fonctionnalités métier, correction de bugs en production, rédaction de supports de formation utilisateurs."
     },
     {
-      "date": "2024",
-      "title": "Stage chez Garage404 - Roanne",
-      "description": "Mise à jour des supports de formation, participation à la création de nouveaux modules, développement d'outils internes pour l'équipe.",
-      "contact": "https://www.linkedin.com/in/%F0%9F%92%A5florent-ferlay-52134b171/"
+      "date": "2023 - 2024",
+      "title": "Stages — HighDay et Garage404",
+      "description": "Front-end Vue.js sur maquettes UI chez HighDay (Saint-Étienne), puis outils internes et supports de formation chez Garage404 (Roanne)."
     },
     {
-      "date": "2023",
-      "title": "Stage chez HighDay - St Etienne",
-      "description": "Stage front en VueJs, développement selon les designs UI, intégration de composants et corrections de bugs.",
-      "contact": "https://www.linkedin.com/in/remi-de-almeida/"
+      "date": "2003 - 2021",
+      "title": "Technicien de laboratoire — analyses médicales et hygiène alimentaire",
+      "description": "Correspondant qualité et délégué du personnel : procédures, traçabilité, audits. L'expérience terrain que j'outille aujourd'hui côté logiciel."
     }
   ],
   "diplomas_title": "Diplômes et certifications",
   "diplomas": [
     {
-      "date": "Juin 2025",
-      "title": "Concepteur Développeur d’Applications (CDA)",
-      "description": "Formation bac +3 en alternance à M2M Financement. Travail sur des plateformes métier, APIs et logique back-end."
+      "date": "2025",
+      "title": "Concepteur Développeur d'Applications (CDA)",
+      "description": "Titre RNCP niveau 6 (bac+3/4), obtenu en alternance chez M2M Financement."
     },
     {
-      "date": "Novembre 2023",
-      "title": "Titre professionnel DWWM",
-      "description": "Développeur Web et Web Mobile – formation intensive de 12 mois, projets fullstack et bonnes pratiques front/back."
+      "date": "2023",
+      "title": "Titre professionnel Développeur Web et Web Mobile (DWWM)",
+      "description": "Titre RNCP niveau 5 (bac+2), formation intensive de 12 mois, projets full stack front et back."
+    },
+    {
+      "date": "Depuis 2021",
+      "title": "Formation continue et veille technologique",
+      "description": "Montée en compétences continue sur les frameworks, l'architecture applicative et les pratiques de mise en production."
     }
   ]
 }

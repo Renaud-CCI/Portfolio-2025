@@ -1,9 +1,29 @@
 {
-  "title": "My portfolio",
-  "intro": "Here are some selected projects completed during training, freelance work, or for fun. Each reflects my attention to quality, adaptability to needs, and passion for structured development.",
+  "title": "My work",
+  "intro": "Projects running in production, and exercises owned as such. wikiwa is the one I operate day to day; the others mark out the career change, from training through to my first assignments.",
   "view_project": "View site",
   "close": "Close",
   "projects": {
+    "wikiwa": {
+      "title": "wikiwa.com",
+      "description": "TV series recommendation platform, live in production",
+      "descriptionLong": "A product I design, build, deploy and operate single-handedly, as a self-employed developer. Collaborative filtering recommendation engine, TheTVDB API integration, user accounts, dashboard and multi-criteria sorting. Server-side rendering for search indexing and social link previews, WCAG 2.1 AA accessibility, GDPR compliance, and continuous deployment through GitHub Actions onto a Docker VPS. Phased rollout through successive closed beta groups, with fixes driven by user feedback."
+    },
+    "lignes": {
+      "title": "Lignes Éternelles",
+      "description": "Showcase website for an artist",
+      "descriptionLong": "Website developed to present the professional activity of a local artist and allow contact. Created with particular attention to accessibility and eco-design."
+    },
+    "creation": {
+      "title": "Freelance website",
+      "description": "Showcase of my web development work",
+      "descriptionLong": "A website I designed to present my work and services. I enjoy building my own projects to learn and experiment, while staying focused on what matters: clarity and efficiency."
+    },
+    "shinefulness": {
+      "title": "Shinefulness®",
+      "description": "Wellness platform Laravel/VueJS",
+      "descriptionLong": "SPA application in Vue.js and Laravel API based on 'Le théorème du bien-être' (O. Soria). Generates PDF roadmaps, statistics, mailing, and accessible user experience. Long-term CDA project with clean architecture, design patterns, and secure authentication (Sanctum)."
+    },
     "pepe": {
       "title": "Pépé la boulange",
       "description": "Showcase website and artisan order interface",
@@ -23,21 +43,6 @@
       "title": "Connect 4",
       "description": "Classic game in object-oriented JS",
       "descriptionLong": "Developed in OOP JavaScript, this game features complete win detection logic, player customization, dynamic grid, and multi-round mode with score objectives."
-    },
-    "shinefulness": {
-      "title": "Shinefulness®",
-      "description": "Wellness platform Laravel/VueJS",
-      "descriptionLong": "SPA application in Vue.js and Laravel API based on 'Le théorème du bien-être' (O. Soria). Generates PDF roadmaps, statistics, mailing, and accessible user experience. Long-term CDA project with clean architecture, design patterns, and secure authentication (Sanctum)."
-    },
-    "lignes": {
-      "title": "Lignes Éternelles",
-      "description": "Showcase website for an artist",
-      "descriptionLong": "Website developed to present the professional activity of a local artist and allow contact. Created with particular attention to accessibility and eco-design."
-    },
-    "creation": {
-      "title": "Freelance website",
-      "description": "Showcase of my web development work",
-      "descriptionLong": "A website I designed to present my work and services. I enjoy building my own projects to learn and experiment, while staying focused on what matters: clarity and efficiency."
     }
   }
 }
