@@ -18,5 +18,13 @@
   "contact": {
     "title": "Contact — Renaud Bresson",
     "description": "An opportunity, an assignment or a technical question? Send me a message. Based in Feurs, France, working remotely or hybrid."
+  },
+  "legal": {
+    "title": "Legal notice — Renaud Bresson",
+    "description": "Publisher, hosting provider, intellectual property and governing law for renaudbresson.dev."
+  },
+  "privacy": {
+    "title": "Privacy policy — Renaud Bresson",
+    "description": "No cookies, no analytics, no transfer outside the EU: the data this site processes, how long it is kept and the rights you can exercise."
   }
 }

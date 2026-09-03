@@ -1,0 +1,170 @@
+{
+  "updated": "Dernière mise à jour : {{date}}",
+  "notice": {
+    "title": "Mentions légales",
+    "intro": "Informations relatives au site renaudbresson.dev, publiées en application de l'article 6 III de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.",
+    "publisher": {
+      "heading": "Éditeur du site",
+      "name": "Éditeur",
+      "status": "Statut",
+      "statusValue": "Entrepreneur individuel — micro-entreprise",
+      "siret": "SIRET",
+      "vat": "TVA",
+      "vatValue": "Non applicable, article 293 B du code général des impôts (franchise en base)",
+      "location": "Siège",
+      "email": "Courriel",
+      "phone": "Téléphone",
+      "director": "Directeur de la publication",
+      "addressNote": "L'adresse complète du siège est consultable au répertoire SIRENE de l'INSEE à partir du numéro SIRET ci-dessus."
+    },
+    "host": {
+      "heading": "Hébergeur",
+      "intro": "Le site est hébergé sur un serveur dédié virtuel fourni par :",
+      "country": "France",
+      "name": "Prestataire",
+      "address": "Adresse",
+      "registry": "Immatriculation",
+      "phone": "Téléphone",
+      "website": "Site",
+      "note": "Le serveur est administré par l'éditeur. Les données restent hébergées en France."
+    },
+    "ip": {
+      "heading": "Propriété intellectuelle",
+      "paragraphs": [
+        "Les textes, la charte graphique et le code source de ce site sont l'œuvre de l'éditeur et sont protégés par le code de la propriété intellectuelle. Toute reproduction ou réutilisation, totale ou partielle, est soumise à autorisation écrite préalable.",
+        "Les captures d'écran des réalisations présentées dans le portfolio restent la propriété de leurs commanditaires respectifs et ne sont reproduites qu'à titre de référence professionnelle."
+      ]
+    },
+    "credits": {
+      "heading": "Crédits et technologies",
+      "paragraphs": [
+        "Site développé avec Vue.js, Vuetify et Tailwind CSS, sous licence MIT. Les icônes proviennent de Material Design Icons et de Font Awesome, sous licences libres.",
+        "Le badge d'écoconception affiché en pied de page est fourni par le Collectif Conception Numérique Responsable (CNUMR)."
+      ]
+    },
+    "links": {
+      "heading": "Liens sortants",
+      "paragraphs": [
+        "Ce site renvoie vers des sites tiers : réalisations mises en ligne, profils professionnels, documentation. Ces liens sont fournis à titre d'information ; l'éditeur n'exerce aucun contrôle sur leur contenu et n'en assume pas la responsabilité."
+      ]
+    },
+    "data": {
+      "heading": "Données personnelles",
+      "paragraphs": [
+        "Les traitements opérés sur les données des visiteurs, les sous-traitants qui interviennent et les droits que vous pouvez exercer font l'objet d'une page dédiée."
+      ]
+    },
+    "law": {
+      "heading": "Droit applicable",
+      "paragraphs": [
+        "Le présent site est soumis au droit français. En cas de litige, et à défaut de résolution amiable, les tribunaux français sont compétents."
+      ]
+    }
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "intro": "Ce site ne dépose aucun cookie, n'utilise aucun outil de mesure d'audience et n'affiche aucune publicité. Les seules données traitées sont celles que vous envoyez volontairement par le formulaire de contact, et celles que tout serveur web enregistre techniquement pour délivrer une page.",
+    "controller": {
+      "heading": "Responsable du traitement",
+      "paragraphs": [
+        "Le responsable du traitement est l'éditeur du site, identifié dans les mentions légales. Toute demande relative à vos données peut lui être adressée à l'adresse électronique qui y figure.",
+        "Aucun délégué à la protection des données n'est désigné : l'activité n'entre dans aucun des cas de désignation obligatoire prévus à l'article 37 du RGPD."
+      ]
+    },
+    "treatments": {
+      "heading": "Données traitées",
+      "labels": {
+        "purpose": "Finalité",
+        "data": "Données",
+        "basis": "Base légale",
+        "recipients": "Destinataires",
+        "retention": "Conservation"
+      },
+      "items": [
+        {
+          "name": "Formulaire de contact",
+          "purpose": "Recevoir votre message et y répondre.",
+          "data": "Votre nom, votre adresse électronique et le contenu de votre message.",
+          "basis": "Votre démarche volontaire : intérêt légitime à répondre à une sollicitation (article 6.1.f du RGPD), ou mesures précontractuelles lorsque le message porte sur une mission (article 6.1.b).",
+          "recipients": "L'éditeur seul. Le message est reçu par un script hébergé sur le serveur du site, puis relayé vers sa boîte électronique. Aucun service tiers de gestion de formulaires n'intervient.",
+          "retention": "Les messages sont supprimés dès que la demande est traitée, et au plus tard douze mois après le dernier échange. Si la conversation débouche sur une relation contractuelle, les documents afférents sont conservés selon les durées légales applicables."
+        },
+        {
+          "name": "Journaux techniques du serveur",
+          "purpose": "Assurer le fonctionnement, la sécurité et le diagnostic du site.",
+          "data": "Adresse IP, date et heure de la requête, page demandée, agent utilisateur, code de réponse.",
+          "basis": "Intérêt légitime (article 6.1.f du RGPD) : sécurité et bon fonctionnement du service.",
+          "recipients": "L'éditeur seul, qui administre le serveur.",
+          "retention": "Trente jours, par rotation automatique des journaux. Ils ne sont ni exportés, ni recoupés avec d'autres sources."
+        },
+        {
+          "name": "Préférence d'affichage",
+          "purpose": "Conserver votre choix de thème clair ou sombre d'une visite à l'autre.",
+          "data": "Une valeur theme, claire ou sombre, dans le stockage local de votre navigateur. La langue, elle, n'est pas mémorisée : elle est portée par l'adresse de la page.",
+          "basis": "Exemptée de consentement : la valeur est strictement nécessaire à un service que vous avez expressément demandé en basculant le thème (article 82 de la loi Informatique et Libertés).",
+          "recipients": "Personne. La valeur ne quitte jamais votre navigateur.",
+          "retention": "Jusqu'à l'effacement des données de navigation. Aucun cookie n'est déposé."
+        }
+      ]
+    },
+    "processors": {
+      "heading": "Sous-traitants",
+      "intro": "Deux prestataires seulement interviennent, tous deux établis dans l'Union européenne. Aucune donnée n'est transférée hors de l'Union.",
+      "labels": {
+        "role": "Rôle",
+        "location": "Localisation"
+      },
+      "items": [
+        {
+          "key": "host",
+          "role": "Fourniture du serveur qui héberge le site et reçoit le formulaire de contact.",
+          "location": "France",
+          "note": "Le serveur est administré par l'éditeur ; le prestataire n'a pas d'usage propre des données qui y transitent."
+        },
+        {
+          "key": "cdn",
+          "role": "Diffusion du script du badge d'écoconception affiché en pied de page.",
+          "location": "Union européenne",
+          "note": "Le badge interroge ensuite l'interface du Collectif Conception Numérique Responsable pour calculer la note environnementale de la page. Ces deux services reçoivent votre adresse IP et l'adresse de la page consultée. Ils ne déposent aucun cookie et ne servent à aucun suivi publicitaire."
+        }
+      ]
+    },
+    "absent": {
+      "heading": "Ce que ce site ne fait pas",
+      "items": [
+        "Aucune mesure d'audience, aucun cookie, aucun traceur publicitaire.",
+        "Aucun bouton de réseau social traçant : les liens vers LinkedIn et GitHub sont de simples liens.",
+        "Aucune revente, cession ou mise à disposition de données à des tiers.",
+        "Aucune décision automatisée ni profilage.",
+        "Le script publicitaire présent sur une version antérieure du site a été retiré."
+      ]
+    },
+    "rights": {
+      "heading": "Vos droits",
+      "intro": "Vous disposez, sur les données qui vous concernent, des droits suivants :",
+      "items": [
+        "droit d'accès : obtenir une copie des données détenues ;",
+        "droit de rectification : faire corriger une information inexacte ;",
+        "droit à l'effacement : demander la suppression de vos données ;",
+        "droit à la limitation du traitement ;",
+        "droit d'opposition, notamment aux traitements fondés sur l'intérêt légitime ;",
+        "droit à la portabilité des données que vous avez fournies."
+      ],
+      "how": "Pour les exercer, écrivez à l'adresse électronique indiquée dans les mentions légales. Une réponse vous sera apportée dans un délai d'un mois. Si elle ne vous satisfait pas, vous pouvez saisir la Commission nationale de l'informatique et des libertés : 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, ou www.cnil.fr."
+    },
+    "security": {
+      "heading": "Sécurité",
+      "paragraphs": [
+        "Le site est servi exclusivement en HTTPS. Le serveur est administré par l'éditeur, maintenu à jour et n'expose que les services nécessaires. Les messages reçus par le formulaire ne sont conservés que dans sa messagerie."
+      ]
+    },
+    "changes": {
+      "heading": "Évolution de cette politique",
+      "paragraphs": [
+        "Cette politique évolue avec le site et ses outils. La date de dernière mise à jour figure en tête de page."
+      ]
+    }
+  },
+  "seeNotice": "Voir les mentions légales",
+  "seePrivacy": "Voir la politique de confidentialité"
+}

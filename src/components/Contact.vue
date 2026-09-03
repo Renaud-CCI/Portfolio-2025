@@ -28,7 +28,7 @@
       </div>
 
       <!-- Formulaire -->
-      <form action="https://formspree.io/f/mgvyzgdy" method="POST" class="max-w-xl mx-auto text-left space-y-6">
+      <form :action="MAIL_ENDPOINT" method="POST" class="max-w-xl mx-auto text-left space-y-6">
         <div>
           <label for="name" class="block font-medium mb-1">{{ t('contact.name') }}</label>
           <input id="name" type="text" name="name" required
@@ -56,8 +56,11 @@
           </div>
         </div>
 
-        <p class="text-sm text-gray-500 dark:text-gray-400 text-center mt-4">
+        <p class="text-sm text-center mt-4" :class="isDark ? 'text-gray-400' : 'text-gray-600'">
           {{ t('contact.privacy_notice') }}
+          <RouterLink :to="localePath('/privacy')" class="text-teal-600 hover:underline">
+            {{ t('legal.seePrivacy') }}
+          </RouterLink>
         </p>
       </form>
     </div>
@@ -69,10 +72,14 @@ defineOptions({ name: 'ContactPage' })
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
 import { useTranslation } from 'i18next-vue'
+import { RouterLink } from 'vue-router'
+import { MAIL_ENDPOINT } from '@/legal'
+import { useLocalePath } from '@/composables/localePath'
 
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 const { t } = useTranslation()
+const { localePath } = useLocalePath()
 </script>
 
 <style scoped></style>

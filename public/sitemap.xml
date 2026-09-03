@@ -94,4 +94,40 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://www.renaudbresson.dev/legal</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.renaudbresson.dev/legal" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renaudbresson.dev/en/legal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.renaudbresson.dev/legal" />
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.renaudbresson.dev/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.renaudbresson.dev/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renaudbresson.dev/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.renaudbresson.dev/privacy" />
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://www.renaudbresson.dev/en/legal</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.renaudbresson.dev/legal" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renaudbresson.dev/en/legal" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.renaudbresson.dev/legal" />
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.2</priority>
+  </url>
+
+  <url>
+    <loc>https://www.renaudbresson.dev/en/privacy</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.renaudbresson.dev/privacy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.renaudbresson.dev/en/privacy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.renaudbresson.dev/privacy" />
+    <lastmod>2026-09-03</lastmod>
+    <priority>0.2</priority>
+  </url>
+
 </urlset>

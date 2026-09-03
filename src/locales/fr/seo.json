@@ -18,5 +18,13 @@
   "contact": {
     "title": "Contact — Renaud Bresson",
     "description": "Une opportunité, une mission ou une question technique ? Écrivez-moi, je réponds rapidement. Basé à Feurs (42), en télétravail ou hybride."
+  },
+  "legal": {
+    "title": "Mentions légales — Renaud Bresson",
+    "description": "Éditeur, hébergeur, propriété intellectuelle et droit applicable du site renaudbresson.dev."
+  },
+  "privacy": {
+    "title": "Politique de confidentialité — Renaud Bresson",
+    "description": "Aucun cookie, aucune mesure d'audience, aucun transfert hors UE : les données traitées par ce site, leurs durées de conservation et vos droits."
   }
 }

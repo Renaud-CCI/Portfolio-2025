@@ -13,13 +13,13 @@ Le code est écrit depuis une machine distante. Les dépendances y sont install�
 ```sh
 npm run type-check   # types, .vue inclus
 npm run lint         # ESLint
-npm run generate     # build + prérendu des 10 routes
-npm run smoke        # ~30 contrôles dans un Chrome headless, sur dist/
+npm run generate     # build + prérendu des 14 routes
+npm run smoke        # ~45 contrôles dans un Chrome headless, sur dist/
 ```
 
-`npm run smoke` couvre la console des dix routes, la résolution des composants Vuetify, les icônes, le tiroir mobile, le menu de réglages, la persistance du thème, la navigation, la bascule de langue, les balises SEO, le mouvement réduit et les corrections visuelles. Il exige un `dist/` à jour : lancer `generate` avant.
+`npm run smoke` couvre la console des quatorze routes, la résolution des composants Vuetify, les icônes, le tiroir mobile, le menu de réglages, la persistance du thème, la navigation, la bascule de langue, les balises SEO, le mouvement réduit et les corrections visuelles. Il exige un `dist/` à jour : lancer `generate` avant.
 
-**Ce qui reste hors de portée :** le jugement visuel (une ombre est-elle trop marquée, une animation trop lente), les appareils réels, les navigateurs autres que Chromium, et tout service externe réellement appelé — Formspree, l'API ecoindex, les robots des réseaux sociaux.
+**Ce qui reste hors de portée :** le jugement visuel (une ombre est-elle trop marquée, une animation trop lente), les appareils réels, les navigateurs autres que Chromium, et tout service externe réellement appelé — le script qui reçoit le formulaire, l'API ecoindex, les robots des réseaux sociaux.
 
 Conséquences :
 
@@ -87,9 +87,11 @@ Une clé manquante n'échoue pas, elle s'affiche brute. Relire les deux locales 
 
 `src/plugins/seo.ts` pose à chaque navigation le titre, la description, les balises OG et Twitter, la canonique et trois `alternate` (`fr`, `en`, `x-default`), depuis `locales/{fr,en}/seo.json` indexé sur le nom de route.
 
-`scripts/prerender.mjs` sert `dist/` sur un serveur local, ouvre les dix routes dans Chromium et écrit le HTML rendu en `dist/<route>/index.html`. Il force `prefers-reduced-motion: reduce` : les animations d'entrée masquent les éléments avant de les révéler, l'instantané serait sinon capturé à opacité nulle. Il vérifie enfin que `public/sitemap.xml` couvre exactement les routes rendues, et échoue sinon.
+`scripts/prerender.mjs` sert `dist/` sur un serveur local, ouvre les quatorze routes dans Chromium et écrit le HTML rendu en `dist/<route>/index.html`. Il force `prefers-reduced-motion: reduce` : les animations d'entrée masquent les éléments avant de les révéler, l'instantané serait sinon capturé à opacité nulle. Il vérifie enfin que `public/sitemap.xml` couvre exactement les routes rendues, et échoue sinon.
 
-**Ajouter une route touche sept endroits** : le routeur (chemin + alias `/en/...`), `seo.json` en français et en anglais, `public/sitemap.xml`, le tableau `ROUTES` de `scripts/prerender.mjs`, et les tableaux `links` d'`App.vue` et de `Footer.vue`.
+**Ajouter une route touche huit endroits** : le routeur (chemin + alias `/en/...`), `seo.json` en français et en anglais, `public/sitemap.xml`, le tableau `ROUTES` de `scripts/prerender.mjs`, celui de `scripts/smoke.mjs` — ce sont deux tableaux distincts — et les tableaux `links` d'`App.vue` et de `Footer.vue`.
+
+Exception assumée : `/legal` et `/privacy` ne figurent que dans `Footer.vue`, dans une seconde rangée plus discrète. Les ajouter à `App.vue` les mettrait dans la barre du haut et dans le tiroir mobile, où elles n'ont rien à faire — et casserait le contrôle « tiroir ouvert avec ses liens » qui attend cinq entrées.
 
 ### Routage et composants
 
@@ -117,9 +119,17 @@ Les PNG et le `.xcf` de `public/images/` sont les fichiers de travail de l'auteu
 
 ### Services externes
 
-Le formulaire de contact poste vers Formspree ; il n'y a pas de backend. Une mention de traitement des données figure sous le bouton (`contact.privacy_notice`). Le badge ecoindex charge un script depuis jsDelivr et appelle une API externe à chaque chargement — d'où des erreurs de console en local, que `smoke.mjs` filtre.
+Le formulaire de contact poste vers l'URL `MAIL_ENDPOINT` de `src/legal.ts`. Une mention de traitement des données figure sous le bouton (`contact.privacy_notice`), suivie d'un lien vers `/privacy`. Le badge ecoindex charge un script depuis jsDelivr et appelle une API externe à chaque chargement — d'où des erreurs de console en local, que `smoke.mjs` filtre.
 
-Il n'y a ni mentions légales ni politique de confidentialité, alors que le site est professionnel et français.
+### Pages légales
+
+`/legal` et `/privacy`, rendues par `Legal.vue` et `Privacy.vue` sur un même `LegalLayout.vue`, les lignes de définitions par `LegalRows.vue`.
+
+**Les faits vérifiables vivent dans `src/legal.ts`, jamais dans les JSON** : identité de l'éditeur, SIRET, hébergeur, date de mise à jour, endpoint du formulaire. Les locales ne portent que ce qui se traduit — libellés, finalités, bases légales. La jointure entre les deux se fait par la clé `key` des entrées `privacy.processors.items` (`host`, `cdn`), pas par un indice de tableau.
+
+Conséquence : corriger un SIRET ou changer d'hébergeur, c'est éditer un seul fichier. Mais **changer d'hébergeur change aussi le fond juridique** — un hébergeur hors UE impose de rétablir une section de transfert au titre de l'article 46 du RGPD dans les deux locales. Voir `runtime-tests.md`.
+
+La section 12 de `smoke.mjs` lit `src/legal.ts` comme du texte pour vérifier trois choses qui bloquent le merge : SIRET renseigné, endpoint auto-hébergé conforme à ce qu'annonce la politique, image wikiwa présente. Ces échecs-là sont comptés séparément des régressions.
 
 ## Conventions
 

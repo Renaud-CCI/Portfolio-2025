@@ -59,6 +59,20 @@ const router = createRouter({
       name: 'services',
       component: () => import('@/components/Services.vue'),
     },
+    // Pages légales : accessibles depuis le pied de page seulement, pas depuis
+    // la barre de navigation.
+    {
+      path: '/legal',
+      alias: '/en/legal',
+      name: 'legal',
+      component: () => import('@/components/Legal.vue'),
+    },
+    {
+      path: '/privacy',
+      alias: '/en/privacy',
+      name: 'privacy',
+      component: () => import('@/components/Privacy.vue'),
+    },
   ],
 })
 

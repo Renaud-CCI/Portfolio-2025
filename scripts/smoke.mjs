@@ -11,11 +11,15 @@ const ROUTES = [
   '/projects',
   '/services',
   '/contact',
+  '/legal',
+  '/privacy',
   '/en',
   '/en/about',
   '/en/projects',
   '/en/services',
   '/en/contact',
+  '/en/legal',
+  '/en/privacy',
 ]
 
 const MIME = {
@@ -72,6 +76,14 @@ function check(label, ok, detail = '') {
   if (!ok) problems.push(label)
 }
 
+// Les bloquants ne sont pas des regressions mais des taches inachevees : les
+// compter a part evite de confondre « le site est casse » et « il reste a faire ».
+const blockers = []
+function blocker(label, ok, detail = '') {
+  console.log(`  ${ok ? 'ok ' : '!! '} ${label}${detail ? ' — ' + detail : ''}`)
+  if (!ok) blockers.push(label)
+}
+
 const { server, port } = await startServer()
 const base = `http://127.0.0.1:${port}`
 const browser = await puppeteer.launch({ headless: true })
@@ -91,7 +103,7 @@ function appNoise(logs) {
   return logs.filter((l) => !THIRD_PARTY.test(l))
 }
 
-console.log('\n1. Console propre sur les dix routes')
+console.log('\n1. Console propre sur les quatorze routes')
 for (const route of ROUTES) {
   const page = await browser.newPage()
   const logs = []
@@ -287,11 +299,13 @@ console.log('\n10. Contenus et requetes tierces')
 
   await page.goto(base + '/contact', { waitUntil: 'networkidle0' })
   const fr = await page.$eval('form', (el) => el.textContent)
-  check('mention de traitement en francais', fr.includes('Formspree'))
+  check('mention de traitement en francais', fr.includes('mon propre serveur'))
+  check('renvoi vers la politique', (await page.$('form a[href="/privacy"]')) !== null)
 
   await page.goto(base + '/en/contact', { waitUntil: 'networkidle0' })
   const en = await page.$eval('form', (el) => el.textContent)
-  check('mention de traitement en anglais', en.includes('United States'))
+  check('mention de traitement en anglais', en.includes('my own server'))
+  check('renvoi vers la politique en anglais', (await page.$('form a[href="/en/privacy"]')) !== null)
 
   await page.goto(base + '/en/services', { waitUntil: 'networkidle0' })
   const services = await page.evaluate(() => document.body.textContent)
@@ -305,11 +319,72 @@ console.log('\n10. Contenus et requetes tierces')
   await page.close()
 }
 
+console.log('\n11. Pages legales')
+{
+  const page = await browser.newPage()
+
+  await page.goto(base + '/legal', { waitUntil: 'networkidle0' })
+  const notice = await page.evaluate(() => document.body.textContent)
+  check('mentions legales : editeur et hebergeur nommes', notice.includes('Éditeur du site') && notice.includes('OVH SAS'))
+  check('titre de page dedie', (await page.title()).startsWith('Mentions légales'), await page.title())
+  check('aucune cle brute sur les mentions', !/legal\.notice\./.test(notice))
+
+  await page.goto(base + '/privacy', { waitUntil: 'networkidle0' })
+  const privacy = await page.evaluate(() => document.body.textContent)
+  check('politique : trois traitements decrits', (privacy.match(/Finalité/g) ?? []).length === 3)
+  check('politique : deux sous-traitants', (privacy.match(/Rôle/g) ?? []).length === 2)
+  check('aucune cle brute sur la politique', !/legal\.privacy\./.test(privacy))
+
+  await page.goto(base + '/en/privacy', { waitUntil: 'networkidle0' })
+  const english = await page.evaluate(() => document.body.textContent)
+  check(
+    'version anglaise reellement traduite',
+    english.includes('Data controller') && !english.includes('Responsable du traitement'),
+  )
+
+  await page.goto(base + '/en/about', { waitUntil: 'networkidle0' })
+  const footer = await page.$$eval('footer a', (els) => els.map((e) => e.getAttribute('href')))
+  check(
+    'pied de page : liens legaux prefixes /en',
+    footer.includes('/en/legal') && footer.includes('/en/privacy'),
+    footer.filter(Boolean).join(' '),
+  )
+  await page.close()
+}
+
+console.log('\n12. Points bloquants avant le merge vers main')
+{
+  // Lu dans la source plutot que dans le rendu : c'est la valeur a corriger.
+  const source = await readFile(resolve('src', 'legal.ts'), 'utf8')
+  const siret = (source.match(/siret:\s*'([^']*)'/)?.[1] ?? '').replace(/\s/g, '')
+  const endpoint = source.match(/MAIL_ENDPOINT = '([^']*)'/)?.[1] ?? ''
+
+  blocker('SIRET renseigne dans src/legal.ts', /^\d{14}$/.test(siret), siret || 'vide')
+  blocker(
+    'formulaire auto-heberge, comme annonce par la politique',
+    !/formspree|web3forms|formsubmit|getform/i.test(endpoint),
+    endpoint,
+  )
+  blocker(
+    'image de la carte wikiwa presente',
+    await isFile(join(DIST, 'images', 'portfolio', 'wikiwa.webp')),
+  )
+}
+
 await browser.close()
 server.close()
 
+if (blockers.length) {
+  console.error(
+    `\n${blockers.length} point(s) bloquant(s) avant le merge vers main : ${blockers.join(', ')}`,
+  )
+  console.error('Ce sont des taches a finir, pas des regressions. Voir runtime-tests.md.')
+}
+
 if (problems.length) {
   console.error(`\n${problems.length} probleme(s) : ${problems.map((p) => p.trim()).join(', ')}`)
-  process.exit(1)
 }
+
+if (problems.length || blockers.length) process.exit(1)
+
 console.log('\nTous les controles passent.')

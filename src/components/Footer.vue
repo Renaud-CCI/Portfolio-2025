@@ -11,11 +11,18 @@
       </div>
 
       <!-- Liens internes -->
-      <nav class="flex flex-wrap justify-center gap-4 text-sm">
-        <RouterLink v-for="link in links" :key="link.to" :to="link.to" class="hover:underline">
-          {{ link.text }}
-        </RouterLink>
-      </nav>
+      <div class="flex flex-col items-center gap-3">
+        <nav class="flex flex-wrap justify-center gap-4 text-sm">
+          <RouterLink v-for="link in links" :key="link.to" :to="link.to" class="hover:underline">
+            {{ link.text }}
+          </RouterLink>
+        </nav>
+        <nav class="flex flex-wrap justify-center gap-4 text-xs opacity-75">
+          <RouterLink v-for="link in legalLinks" :key="link.to" :to="link.to" class="hover:underline">
+            {{ link.text }}
+          </RouterLink>
+        </nav>
+      </div>
 
       <!-- Réseaux + CV -->
       <div class="flex flex-col items-center gap-3">
@@ -67,6 +74,13 @@ const links = computed(() =>
     { text: t('nav.projects'), path: '/projects' },
     { text: t('nav.services'), path: '/services' },
     { text: t('nav.contact'), path: '/contact' },
+  ].map((link) => ({ text: link.text, to: localePath(link.path) })),
+)
+
+const legalLinks = computed(() =>
+  [
+    { text: t('nav.legal'), path: '/legal' },
+    { text: t('nav.privacy'), path: '/privacy' },
   ].map((link) => ({ text: link.text, to: localePath(link.path) })),
 )
 

@@ -1,0 +1,170 @@
+{
+  "updated": "Last updated: {{date}}",
+  "notice": {
+    "title": "Legal notice",
+    "intro": "Information about the renaudbresson.dev website, published under article 6 III of French law no. 2004-575 of 21 June 2004 on confidence in the digital economy.",
+    "publisher": {
+      "heading": "Site publisher",
+      "name": "Publisher",
+      "status": "Legal status",
+      "statusValue": "Sole trader — French micro-entreprise",
+      "siret": "SIRET",
+      "vat": "VAT",
+      "vatValue": "Not applicable, article 293 B of the French tax code (small business exemption)",
+      "location": "Registered in",
+      "email": "Email",
+      "phone": "Phone",
+      "director": "Publication director",
+      "addressNote": "The full registered address can be looked up in INSEE's SIRENE register from the SIRET number above."
+    },
+    "host": {
+      "heading": "Hosting provider",
+      "intro": "The site runs on a virtual private server provided by:",
+      "country": "France",
+      "name": "Provider",
+      "address": "Address",
+      "registry": "Registration",
+      "phone": "Phone",
+      "website": "Website",
+      "note": "The server is administered by the publisher. The data stays hosted in France."
+    },
+    "ip": {
+      "heading": "Intellectual property",
+      "paragraphs": [
+        "The text, visual design and source code of this site are the work of the publisher and are protected by French intellectual property law. Any reproduction or reuse, in whole or in part, requires prior written permission.",
+        "Screenshots of the work shown in the portfolio remain the property of the respective clients and are reproduced for professional reference only."
+      ]
+    },
+    "credits": {
+      "heading": "Credits and technologies",
+      "paragraphs": [
+        "Built with Vue.js, Vuetify and Tailwind CSS, all under the MIT licence. Icons come from Material Design Icons and Font Awesome, under open licences.",
+        "The eco-design badge in the footer is provided by the Collectif Conception Numérique Responsable (CNUMR)."
+      ]
+    },
+    "links": {
+      "heading": "Outbound links",
+      "paragraphs": [
+        "This site links to third-party sites: published work, professional profiles, documentation. Those links are provided for information only; the publisher has no control over their content and accepts no responsibility for it."
+      ]
+    },
+    "data": {
+      "heading": "Personal data",
+      "paragraphs": [
+        "How visitor data is processed, which processors are involved and the rights you can exercise are covered on a dedicated page."
+      ]
+    },
+    "law": {
+      "heading": "Governing law",
+      "paragraphs": [
+        "This site is governed by French law. In the event of a dispute, and failing an amicable settlement, the French courts have jurisdiction."
+      ]
+    }
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "intro": "This site sets no cookies, uses no analytics and shows no advertising. The only data processed is what you deliberately send through the contact form, and what any web server records technically in order to serve a page.",
+    "controller": {
+      "heading": "Data controller",
+      "paragraphs": [
+        "The data controller is the site publisher, identified in the legal notice. Any request about your data can be sent to the email address given there.",
+        "No data protection officer has been appointed: the activity falls under none of the cases where article 37 of the GDPR makes it mandatory."
+      ]
+    },
+    "treatments": {
+      "heading": "Data processed",
+      "labels": {
+        "purpose": "Purpose",
+        "data": "Data",
+        "basis": "Legal basis",
+        "recipients": "Recipients",
+        "retention": "Retention"
+      },
+      "items": [
+        {
+          "name": "Contact form",
+          "purpose": "Receiving your message and replying to it.",
+          "data": "Your name, your email address and the content of your message.",
+          "basis": "Your own initiative: legitimate interest in answering an enquiry (article 6.1.f GDPR), or pre-contractual steps where the message concerns an assignment (article 6.1.b).",
+          "recipients": "The publisher alone. The message is received by a script hosted on the site's own server, then forwarded to his mailbox. No third-party form service is involved.",
+          "retention": "Messages are deleted as soon as the request has been handled, and at the latest twelve months after the last exchange. Where the conversation leads to a contract, the related documents are kept for the applicable statutory periods."
+        },
+        {
+          "name": "Server technical logs",
+          "purpose": "Keeping the site running, secure and diagnosable.",
+          "data": "IP address, date and time of the request, page requested, user agent, response code.",
+          "basis": "Legitimate interest (article 6.1.f GDPR): security and correct operation of the service.",
+          "recipients": "The publisher alone, who administers the server.",
+          "retention": "Thirty days, through automatic log rotation. The logs are neither exported nor cross-referenced with other sources."
+        },
+        {
+          "name": "Display preference",
+          "purpose": "Remembering your light or dark theme choice between visits.",
+          "data": "A theme value, light or dark, in your browser's local storage. Your language is not stored: it is carried by the page address.",
+          "basis": "Exempt from consent: the value is strictly necessary for a service you explicitly requested by switching the theme (article 82 of the French Data Protection Act).",
+          "recipients": "Nobody. The value never leaves your browser.",
+          "retention": "Until you clear your browsing data. No cookie is set."
+        }
+      ]
+    },
+    "processors": {
+      "heading": "Processors",
+      "intro": "Only two providers are involved, both established in the European Union. No data is transferred outside the Union.",
+      "labels": {
+        "role": "Role",
+        "location": "Location"
+      },
+      "items": [
+        {
+          "key": "host",
+          "role": "Supplying the server that hosts the site and receives the contact form.",
+          "location": "France",
+          "note": "The server is administered by the publisher; the provider makes no use of its own of the data passing through it."
+        },
+        {
+          "key": "cdn",
+          "role": "Delivering the script for the eco-design badge shown in the footer.",
+          "location": "European Union",
+          "note": "The badge then queries the Collectif Conception Numérique Responsable's interface to compute the page's environmental score. Both services receive your IP address and the address of the page you are viewing. Neither sets a cookie, and neither is used for advertising tracking."
+        }
+      ]
+    },
+    "absent": {
+      "heading": "What this site does not do",
+      "items": [
+        "No analytics, no cookies, no advertising trackers.",
+        "No tracking social buttons: the LinkedIn and GitHub links are plain links.",
+        "No sale, transfer or sharing of data with third parties.",
+        "No automated decision-making and no profiling.",
+        "The advertising script present in an earlier version of the site has been removed."
+      ]
+    },
+    "rights": {
+      "heading": "Your rights",
+      "intro": "You have the following rights over the data concerning you:",
+      "items": [
+        "right of access: obtain a copy of the data held;",
+        "right to rectification: have inaccurate information corrected;",
+        "right to erasure: request the deletion of your data;",
+        "right to restriction of processing;",
+        "right to object, in particular to processing based on legitimate interest;",
+        "right to portability of the data you provided."
+      ],
+      "how": "To exercise them, write to the email address given in the legal notice. You will get an answer within one month. If it does not satisfy you, you may lodge a complaint with the French data protection authority: CNIL, 3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07, or www.cnil.fr."
+    },
+    "security": {
+      "heading": "Security",
+      "paragraphs": [
+        "The site is served over HTTPS only. The server is administered by the publisher, kept up to date and exposes only the services it needs. Messages received through the form are kept in his mailbox alone."
+      ]
+    },
+    "changes": {
+      "heading": "Changes to this policy",
+      "paragraphs": [
+        "This policy changes along with the site and its tooling. The date it was last updated appears at the top of the page."
+      ]
+    }
+  },
+  "seeNotice": "Read the legal notice",
+  "seePrivacy": "Read the privacy policy"
+}

@@ -11,11 +11,15 @@ const ROUTES = [
   '/projects',
   '/services',
   '/contact',
+  '/legal',
+  '/privacy',
   '/en',
   '/en/about',
   '/en/projects',
   '/en/services',
   '/en/contact',
+  '/en/legal',
+  '/en/privacy',
 ]
 
 const MIME = {
