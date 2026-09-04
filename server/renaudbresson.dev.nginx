@@ -1,14 +1,9 @@
 # ─── Frontend Vue.js (SPA prérendue) — www.renaudbresson.dev ─────────────────
-#
-# Version pré-certbot : HTTP seul. Étape 1 du bootstrap (voir server/README.md) —
-# une fois `certbot --nginx` lancé sur le VPS, il réécrit ce fichier pour ajouter
-# les blocs HTTPS et la redirection 80 -> 443 ; c'est CETTE version réécrite qui
-# doit être rapatriée et committée ici, pas celle-ci. Tant que ça n'a pas été
-# fait, le déploiement CI écrase la version bootstrap par la version bootstrap
-# à chaque run : aucune régression possible, juste rien de gagné.
+# Config finale, générée par `certbot --nginx -d renaudbresson.dev -d www.renaudbresson.dev`
+# le 2026-09-04 puis rapatriée ici (voir server/README.md). Un correctif manuel :
+# certbot avait copié la redirection du domaine nu telle quelle dans le bloc HTTPS,
+# renvoyant donc vers du http:// depuis une connexion https:// — corrigé ci-dessous.
 server {
-    listen 80;
-    listen [::]:80;
     server_name www.renaudbresson.dev;
 
     root /var/www/portfolio-frontend;
@@ -35,13 +30,49 @@ server {
 
     access_log /var/log/nginx/renaudbresson.dev.access.log;
     error_log /var/log/nginx/renaudbresson.dev.error.log;
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/renaudbresson.dev/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/renaudbresson.dev/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 }
 
 # ─── Domaine nu -> www (redirection, comme le faisait Vercel) ────────────────
 server {
+    server_name renaudbresson.dev;
+
+    # Corrige le bug certbot : la redirection generee pointait vers http://
+    # depuis ce bloc https://, cassant le domaine nu en HTTPS.
+    return 301 https://www.renaudbresson.dev$request_uri;
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/renaudbresson.dev/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/renaudbresson.dev/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}
+
+server {
+    if ($host = renaudbresson.dev) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
     listen 80;
     listen [::]:80;
     server_name renaudbresson.dev;
+    return 404; # managed by Certbot
+}
 
-    return 301 http://www.renaudbresson.dev$request_uri;
+server {
+    if ($host = www.renaudbresson.dev) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+    listen 80;
+    listen [::]:80;
+    server_name www.renaudbresson.dev;
+    return 404; # managed by Certbot
 }
