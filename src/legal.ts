@@ -2,7 +2,7 @@
 // dérive possible entre les deux langues.
 export const LEGAL = {
   name: 'Renaud Bresson',
-  city: 'Feurs (42110)',
+  city: 'Néronde (42510)',
   siret: '10244291000018',
   email: 'contact@renaudbresson.dev',
   phone: '06 23 84 67 65',

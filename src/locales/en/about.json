@@ -3,7 +3,7 @@
   "subtitle": "Full stack developer, former laboratory technician",
   "bio_intro": "Eighteen years in medical analysis and food safety laboratories, several of them as a quality officer, before a complete career change into software. That path is not a detour: it taught me procedure, traceability and how to read a trade from the inside — exactly what you want from someone designing tools for other people.",
   "bio_today": "I currently work across several layers of an industrial ERP: Angular front end, Java/Spring back end and a Frappe ERP. Alongside that, I design and operate wikiwa.com, a TV series recommendation platform running in production, as a self-employed developer.",
-  "bio_location": "Based in Feurs, in the Loire (42), France. I work remotely or hybrid.",
+  "bio_location": "Based near Feurs, in the Loire (42), France. I work remotely or hybrid.",
   "bio_rqth": "My profile includes an {{rqth}}, which simply means I need a hybrid work organization (partial remote or sedentary position), with no impact on my skills or commitment. I am autonomous, rigorous, and comfortable working both in a team and independently.",
   "bio_goals": "I look for projects where software serves a real trade: internal tools, business applications, platforms meant to be operated over time. The code that interests me is the code you can reread six months later without dreading it.",
   "view_projects": "See my work",
@@ -42,8 +42,8 @@
   "timeline": [
     {
       "date": "Since May 2026",
-      "title": "Full Stack Developer — EP MECA, Feurs, France",
-      "description": "Custom industrial ERP, built in-house by a five-person team including three developers. Angular 21 front end with a signal-based architecture; Java 21 / Spring Boot back end in a multi-tenant hexagonal architecture; Frappe / ERPNext layer in Python. Contribution to the in-house design system, testing, code review and GitLab continuous integration."
+      "title": "Full Stack Developer — EP MECA, Veauche, France",
+      "description": "Custom industrial ERP, built in-house by a five-person team including three developers. Angular 21 front end with a signal-based architecture; Java 21 / Spring Boot back end in a multi-tenant hexagonal architecture; Frappe / ERPNext layer in Python. Contribution to the in-house design system, testing and code review through GitLab merge requests."
     },
     {
       "date": "Since 2024",
