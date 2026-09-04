@@ -9,7 +9,7 @@
 server {
     listen 80;
     listen [::]:80;
-    server_name renaudbresson.dev www.renaudbresson.dev;
+    server_name www.renaudbresson.dev;
 
     root /var/www/portfolio-frontend;
     index index.html;
@@ -35,4 +35,13 @@ server {
 
     access_log /var/log/nginx/renaudbresson.dev.access.log;
     error_log /var/log/nginx/renaudbresson.dev.error.log;
+}
+
+# ─── Domaine nu -> www (redirection, comme le faisait Vercel) ────────────────
+server {
+    listen 80;
+    listen [::]:80;
+    server_name renaudbresson.dev;
+
+    return 301 http://www.renaudbresson.dev$request_uri;
 }
