@@ -1,0 +1,38 @@
+# ─── Frontend Vue.js (SPA prérendue) — www.renaudbresson.dev ─────────────────
+#
+# Version pré-certbot : HTTP seul. Étape 1 du bootstrap (voir server/README.md) —
+# une fois `certbot --nginx` lancé sur le VPS, il réécrit ce fichier pour ajouter
+# les blocs HTTPS et la redirection 80 -> 443 ; c'est CETTE version réécrite qui
+# doit être rapatriée et committée ici, pas celle-ci. Tant que ça n'a pas été
+# fait, le déploiement CI écrase la version bootstrap par la version bootstrap
+# à chaque run : aucune régression possible, juste rien de gagné.
+server {
+    listen 80;
+    listen [::]:80;
+    server_name renaudbresson.dev www.renaudbresson.dev;
+
+    root /var/www/portfolio-frontend;
+    index index.html;
+
+    # $uri/index.html sert le prerendu (ex. dist/en/about/index.html sur
+    # /en/about) ; /index.html en repli assure le fonctionnement SPA pour
+    # tout ce qui n'est pas une des routes prerendues. Voir CLAUDE.md,
+    # section "Référencement et prérendu".
+    location / {
+        try_files $uri $uri/index.html /index.html;
+    }
+
+    # Script du formulaire de contact (voir server/contact.php, server/README.md)
+    # — hors de /var/www/portfolio-frontend pour ne pas etre efface par le
+    # `rsync --delete` qui resynchronise dist/ a chaque deploiement du front.
+    location = /contact.php {
+        root /var/www/portfolio-scripts;
+        fastcgi_index contact.php;
+        fastcgi_pass unix:/var/run/php/php8.5-fpm.sock;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root/contact.php;
+    }
+
+    access_log /var/log/nginx/renaudbresson.dev.access.log;
+    error_log /var/log/nginx/renaudbresson.dev.error.log;
+}

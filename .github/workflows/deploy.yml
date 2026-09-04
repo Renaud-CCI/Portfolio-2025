@@ -1,0 +1,72 @@
+name: Deploy Frontend
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types:
+      - completed
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    # `workflow_run` est vide sur un declenchement manuel : sans ce test sur
+    # event_name, un workflow_dispatch serait silencieusement saute.
+    if: >-
+      ${{ github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'master') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4.2.2
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install & build
+        run: |
+          npm ci
+          npm run generate
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.9.1
+        with:
+          ssh-private-key: ${{ secrets.VPS_SSH_KEY }}
+
+      - name: Deploy to VPS
+        run: |
+          # Le rsync efface la version en ligne : un dist tronque (build partiel)
+          # la remplacerait par un site casse, sans temoin.
+          test -s dist/index.html || { echo "dist/index.html absent ou vide — deploiement annule"; exit 1; }
+          test -s dist/en/index.html || { echo "pages prerendues manquantes — deploiement annule"; exit 1; }
+
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            sudo mkdir -p /var/www/portfolio-frontend /var/www/portfolio-scripts
+            sudo chown -R ubuntu:ubuntu /var/www/portfolio-frontend /var/www/portfolio-scripts
+          EOF
+
+          rsync -az --delete \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            dist/ ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/portfolio-frontend/
+
+          rsync -az \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            server/contact.php ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/var/www/portfolio-scripts/contact.php
+
+          rsync -az \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            server/renaudbresson.dev.nginx ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/tmp/renaudbresson.dev.nginx
+
+          ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << 'EOF'
+            sudo chown -R www-data:www-data /var/www/portfolio-frontend /var/www/portfolio-scripts
+            sudo chmod -R 755 /var/www/portfolio-frontend /var/www/portfolio-scripts
+            sudo mv /tmp/renaudbresson.dev.nginx /etc/nginx/sites-available/renaudbresson.dev
+            sudo ln -sf /etc/nginx/sites-available/renaudbresson.dev /etc/nginx/sites-enabled/renaudbresson.dev
+            sudo nginx -t && sudo systemctl reload nginx
+          EOF
