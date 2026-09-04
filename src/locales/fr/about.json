@@ -2,7 +2,7 @@
   "title": "À propos de moi",
   "subtitle": "Développeur full stack, ancien technicien de laboratoire",
   "bio_intro": "Dix-huit ans en laboratoire d'analyses médicales et d'hygiène alimentaire, dont plusieurs comme correspondant qualité, avant une reconversion complète vers le développement. Ce parcours n'est pas un détour : il m'a appris la procédure, la traçabilité et la lecture d'un métier de l'intérieur — exactement ce qu'on attend de quelqu'un qui conçoit des outils pour d'autres.",
-  "bio_today": "J'interviens aujourd'hui sur les quatre couches d'un ERP industriel : front Angular, middleware Node, backend Java/Spring et ERP Frappe. En parallèle, je conçois et j'exploite wikiwa.com, une plateforme de recommandation de séries en production, sous statut auto-entrepreneur.",
+  "bio_today": "J'interviens aujourd'hui sur plusieurs couches d'un ERP industriel : front Angular, backend Java/Spring et ERP Frappe. En parallèle, je conçois et j'exploite wikiwa.com, une plateforme de recommandation de séries en production, sous statut auto-entrepreneur.",
   "bio_location": "Basé à Feurs, dans la Loire (42). Je travaille en télétravail ou en hybride.",
   "bio_rqth": "Mon profil inclut une {{rqth}} et implique simplement un besoin d'organisation hybride (télétravail partiel ou poste sédentarisé), sans impact sur mes compétences ou mon implication. Je suis autonome, rigoureux et à l'aise pour travailler en équipe comme en solo.",
   "bio_goals": "Je cherche des projets où le logiciel sert un métier réel : outils internes, applications de gestion, plateformes à exploiter dans la durée. Le code qui m'intéresse est celui qu'on relit six mois plus tard sans le craindre.",
@@ -43,7 +43,7 @@
     {
       "date": "Depuis mai 2026",
       "title": "Développeur full stack — EP MECA, Feurs (42)",
-      "description": "ERP industriel sur mesure, développé en interne par une équipe de 5, dont 3 développeurs. Front Angular 21 en architecture par signaux sur les écrans achats, stock et qualité ; middleware Node / Express ; backend Java 21 / Spring Boot en architecture hexagonale multi-tenant ; couche Frappe / ERPNext en Python. Contribution au design system interne, tests, revue de code et intégration continue GitLab."
+      "description": "ERP industriel sur mesure, développé en interne par une équipe de 5, dont 3 développeurs. Front Angular 21 en architecture par signaux ; backend Java 21 / Spring Boot en architecture hexagonale multi-tenant ; couche Frappe / ERPNext en Python. Contribution au design system interne, tests, revue de code et intégration continue GitLab."
     },
     {
       "date": "Depuis 2024",
