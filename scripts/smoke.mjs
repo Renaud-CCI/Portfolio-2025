@@ -86,7 +86,13 @@ function blocker(label, ok, detail = '') {
 
 const { server, port } = await startServer()
 const base = `http://127.0.0.1:${port}`
-const browser = await puppeteer.launch({ headless: true })
+// --no-sandbox : les runners GitHub Actions interdisent les namespaces
+// utilisateur non privilégiés (AppArmor), le sandbox Chromium par défaut y
+// échoue avec "No usable sandbox!". Sans effet en local, où le sandbox marche.
+const browser = await puppeteer.launch({
+  headless: true,
+  args: process.env.CI ? ['--no-sandbox', '--disable-setuid-sandbox'] : [],
+})
 
 // Le badge ecoindex interroge une API externe avec l'URL de la page : en local
 // elle est injoignable, ce bruit-là n'est pas un défaut du site.
