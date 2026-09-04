@@ -11,7 +11,7 @@
     </p>
 
     <!-- Grid des projets -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <div v-for="project in projects" :key="project.id"
         class="rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 transform hover:scale-105 hover:shadow-xl"
         :class="isDark ? 'bg-black/20 hover:bg-black/30' : 'bg-white/10 hover:bg-white/20'"

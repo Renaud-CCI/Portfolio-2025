@@ -12,7 +12,7 @@
     </p>
 
     <!-- Cartes -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+    <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
       <div v-for="(item, key) in serviceKeys" :key="key"
         class="rounded-xl px-6 py-4 shadow-md border-t hover:ring-2 hover:ring-amber-400/60 hover:shadow-lg transition-all duration-300"
         :class="isDark ? 'bg-black/20 hover:bg-black/30 border-white/10' : 'bg-white/10 hover:bg-white/20 border-white/30'">
