@@ -39,7 +39,7 @@ avant de le recommitter.
 
 ## Déploiement (`.github/workflows/deploy.yml`)
 
-Se déclenche après un succès de la CI sur `master` (ou manuellement,
+Se déclenche après un succès de la CI sur `main` (ou manuellement,
 `workflow_dispatch`). Construit avec `npm run generate` (pas `build` — c'est la
 commande qui prérend, voir `CLAUDE.md`), puis :
 
@@ -53,7 +53,7 @@ commande qui prérend, voir `CLAUDE.md`), puis :
 
 Le workflow n'a pas encore tourné réellement (il n'existe que sur `dev`, et GitHub
 n'autorise le déclenchement — automatique ou manuel — qu'à partir de la branche par
-défaut). Le premier déploiement effectif se fera au prochain merge vers `master`.
+défaut). Le premier déploiement effectif se fera au prochain merge vers `main`.
 Le bootstrap initial (dossiers, vhost, contact.php) a été fait à la main, avec les
 mêmes commandes que celles du workflow.
 
