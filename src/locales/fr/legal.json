@@ -63,7 +63,7 @@
   },
   "privacy": {
     "title": "Politique de confidentialité",
-    "intro": "Ce site ne dépose aucun cookie, n'utilise aucun outil de mesure d'audience et n'affiche aucune publicité. Les seules données traitées sont celles que vous envoyez volontairement par le formulaire de contact, et celles que tout serveur web enregistre techniquement pour délivrer une page.",
+    "intro": "Ce site ne dépose aucun cookie, n'utilise aucun outil de mesure d'audience et n'affiche aucune publicité. La seule donnée traitée est celle que vous envoyez volontairement par le formulaire de contact : le serveur n'enregistre pas votre adresse IP.",
     "controller": {
       "heading": "Responsable du traitement",
       "paragraphs": [
@@ -88,14 +88,6 @@
           "basis": "Votre démarche volontaire : intérêt légitime à répondre à une sollicitation (article 6.1.f du RGPD), ou mesures précontractuelles lorsque le message porte sur une mission (article 6.1.b).",
           "recipients": "L'éditeur seul. Le message est reçu par un script hébergé sur le serveur du site, puis relayé vers sa boîte électronique. Aucun service tiers de gestion de formulaires n'intervient.",
           "retention": "Les messages sont supprimés dès que la demande est traitée, et au plus tard douze mois après le dernier échange. Si la conversation débouche sur une relation contractuelle, les documents afférents sont conservés selon les durées légales applicables."
-        },
-        {
-          "name": "Journaux techniques du serveur",
-          "purpose": "Assurer le fonctionnement, la sécurité et le diagnostic du site.",
-          "data": "Adresse IP, date et heure de la requête, page demandée, agent utilisateur, code de réponse.",
-          "basis": "Intérêt légitime (article 6.1.f du RGPD) : sécurité et bon fonctionnement du service.",
-          "recipients": "L'éditeur seul, qui administre le serveur.",
-          "retention": "Trente jours, par rotation automatique des journaux. Ils ne sont ni exportés, ni recoupés avec d'autres sources."
         },
         {
           "name": "Préférence d'affichage",
@@ -136,6 +128,7 @@
         "Aucun bouton de réseau social traçant : les liens vers LinkedIn et GitHub sont de simples liens.",
         "Aucune revente, cession ou mise à disposition de données à des tiers.",
         "Aucune décision automatisée ni profilage.",
+        "Aucune journalisation de votre adresse IP par le serveur.",
         "Le script publicitaire présent sur une version antérieure du site a été retiré."
       ]
     },

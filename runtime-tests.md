@@ -26,35 +26,10 @@ Plus aucun 🔴 bloquant au 2026-09-04 : SIRET, image wikiwa, hébergement et fo
 
 Décision prise le 2026-09-03, exécutée le 2026-09-04 : nginx + certbot sur le VPS (`server/renaudbresson.dev.nginx`, rapatrié après un correctif — certbot avait copié la redirection HTTP du domaine nu telle quelle dans le bloc HTTPS), DNS IONOS basculé, Vercel plus dans le chemin. `try_files $uri $uri/index.html /index.html;` en place, vérifié en prod.
 
-### 5. Journalisation du serveur : la politique annonce trente jours
-
-Réglé pour les messages — la politique dit maintenant « supprimés dès que la demande est traitée, et au plus tard douze mois », ce qui correspond à ton habitude. Restent les journaux du serveur, seul engagement de la politique qui dépende d'une configuration et pas de toi.
-
-**Aucune valeur par défaut ne donne trente jours.** Docker en `json-file` sans option ne fait *aucune* rotation : les journaux grossissent jusqu'à saturer le disque, c'est le piège classique du VPS qui tombe au bout de deux ans. Et le paquet nginx de Debian ou d'Ubuntu installe un `/etc/logrotate.d/nginx` en `daily` + `rotate 14`, soit quatorze jours. Dans les deux cas la phrase publiée est fausse.
-
-**Aucune des deux solutions ci-dessous ne touche wikiwa.** `logrotate` n'est pas un réglage global : `/etc/logrotate.d/` est un dossier contenant un fichier par service, et chaque fichier ne s'applique qu'aux chemins qu'il nomme explicitement. De même, les options de journalisation Docker se posent par conteneur. Le seul geste à éviter est d'éditer `/etc/logrotate.d/nginx`, le fichier partagé posé par le paquet système.
-
-- **Recommandé — ne pas journaliser l'adresse IP sur ce site.** Un `access_log off;`, ou un `log_format` sans `$remote_addr`, dans le nginx du portfolio. Plus de donnée personnelle dans les journaux, donc plus de durée à promettre ni de rotation à configurer : le traitement disparaît de la politique, qui en sort plus courte et plus solide. Coût : plus de `fail2ban` ici — ce site n'a ni compte, ni back-office, ni administration à forcer. Pour protéger le formulaire, un `limit_req` nginx suffit et ne lit aucun journal.
-- **Si tu tiens aux IP** : écrire les journaux du portfolio dans un volume à lui (`/srv/portfolio/logs/`) et ajouter un `/etc/logrotate.d/portfolio` en `daily` + `rotate 30`.
-
-Si tu choisis la première option, **préviens-moi** : il faut alors retirer le traitement « Journaux techniques du serveur » des deux `legal.json`, pas seulement changer la configuration du serveur.
-
-**État réel au 2026-09-04** : ni l'une ni l'autre option n'est faite. Le vhost bootstrap journalise dans `/var/log/nginx/renaudbresson.dev.access.log` avec le format par défaut (donc `$remote_addr`), sans `logrotate` dédié — exactement le piège décrit plus haut. Décision toujours à prendre.
-
----
-
-## Relecture juridique
-
-### 6. Deux affirmations que je n'ai pas pu vérifier
-
-Elles sont plausibles mais posées sans preuve, et ce sont des mentions légales.
-
-- **Franchise en base de TVA** (article 293 B du CGI) : exact par défaut en micro-entreprise, faux si tu as dépassé les seuils ou opté pour la TVA. Vérifier.
-- **Adresse et téléphone d'OVH** : `2 rue Kellermann, 59100 Roubaix`, RCS Lille Métropole `424 761 419`, téléphone `1007`. À confronter aux mentions légales publiées par OVH.
-
-### 7. Crédit de la photographie du héros
-
-`public/images/forest-hero-sm.webp` n'est crédité nulle part. Si elle vient d'une banque d'images, la licence impose peut-être une attribution : l'ajouter à la section « Crédits et technologies » de `legal.json`. Si elle est de toi, rien à faire.
+Journalisation réglée le 2026-09-04 : `access_log off;` sur le vhost (choix de Renaud —
+pas de charge à faire porter au VPS pour un portfolio), journal existant purgé. Le
+traitement « Journaux techniques du serveur » est retiré des deux `legal.json`, la
+politique n'a donc plus de durée de conservation à tenir pour ce point.
 
 ---
 

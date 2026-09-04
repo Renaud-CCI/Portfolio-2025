@@ -63,7 +63,7 @@
   },
   "privacy": {
     "title": "Privacy policy",
-    "intro": "This site sets no cookies, uses no analytics and shows no advertising. The only data processed is what you deliberately send through the contact form, and what any web server records technically in order to serve a page.",
+    "intro": "This site sets no cookies, uses no analytics and shows no advertising. The only data processed is what you deliberately send through the contact form: the server does not record your IP address.",
     "controller": {
       "heading": "Data controller",
       "paragraphs": [
@@ -88,14 +88,6 @@
           "basis": "Your own initiative: legitimate interest in answering an enquiry (article 6.1.f GDPR), or pre-contractual steps where the message concerns an assignment (article 6.1.b).",
           "recipients": "The publisher alone. The message is received by a script hosted on the site's own server, then forwarded to his mailbox. No third-party form service is involved.",
           "retention": "Messages are deleted as soon as the request has been handled, and at the latest twelve months after the last exchange. Where the conversation leads to a contract, the related documents are kept for the applicable statutory periods."
-        },
-        {
-          "name": "Server technical logs",
-          "purpose": "Keeping the site running, secure and diagnosable.",
-          "data": "IP address, date and time of the request, page requested, user agent, response code.",
-          "basis": "Legitimate interest (article 6.1.f GDPR): security and correct operation of the service.",
-          "recipients": "The publisher alone, who administers the server.",
-          "retention": "Thirty days, through automatic log rotation. The logs are neither exported nor cross-referenced with other sources."
         },
         {
           "name": "Display preference",
@@ -136,6 +128,7 @@
         "No tracking social buttons: the LinkedIn and GitHub links are plain links.",
         "No sale, transfer or sharing of data with third parties.",
         "No automated decision-making and no profiling.",
+        "No logging of your IP address by the server.",
         "The advertising script present in an earlier version of the site has been removed."
       ]
     },

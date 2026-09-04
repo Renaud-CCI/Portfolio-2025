@@ -28,7 +28,12 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root/contact.php;
     }
 
-    access_log /var/log/nginx/renaudbresson.dev.access.log;
+    # Pas de journal d'accès : évite de journaliser l'adresse IP des visiteurs
+    # (voir runtime-tests.md, decision retention des journaux) — supprime au
+    # passage tout engagement de duree/rotation a tenir dans la politique de
+    # confidentialite. error_log garde un diagnostic minimal (pas de volume
+    # systematique par visite, contrairement a l'access log).
+    access_log off;
     error_log /var/log/nginx/renaudbresson.dev.error.log;
 
     listen [::]:443 ssl; # managed by Certbot

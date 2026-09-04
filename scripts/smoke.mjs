@@ -337,7 +337,7 @@ console.log('\n11. Pages legales')
 
   await page.goto(base + '/privacy', { waitUntil: 'networkidle0' })
   const privacy = await page.evaluate(() => document.body.textContent)
-  check('politique : trois traitements decrits', (privacy.match(/Finalité/g) ?? []).length === 3)
+  check('politique : deux traitements decrits', (privacy.match(/Finalité/g) ?? []).length === 2)
   check('politique : deux sous-traitants', (privacy.match(/Rôle/g) ?? []).length === 2)
   check('aucune cle brute sur la politique', !/legal\.privacy\./.test(privacy))
 
