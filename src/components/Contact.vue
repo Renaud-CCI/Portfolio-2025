@@ -29,6 +29,10 @@
 
       <!-- Formulaire -->
       <form :action="MAIL_ENDPOINT" method="POST" class="max-w-xl mx-auto text-left space-y-6">
+        <!-- Sert au script PHP pour rediriger vers /contact/merci dans la bonne langue :
+             le POST classique quitte la page, il n'a pas d'autre moyen de la connaître. -->
+        <input type="hidden" name="lang" :value="lang" />
+
         <div>
           <label for="name" class="block font-medium mb-1">{{ t('contact.name') }}</label>
           <input id="name" type="text" name="name" required
@@ -79,7 +83,7 @@ import { useLocalePath } from '@/composables/localePath'
 const theme = useTheme()
 const isDark = computed(() => theme.global.current.value.dark)
 const { t } = useTranslation()
-const { localePath } = useLocalePath()
+const { localePath, lang } = useLocalePath()
 </script>
 
 <style scoped></style>

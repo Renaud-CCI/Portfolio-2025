@@ -3,8 +3,7 @@
 export const LEGAL = {
   name: 'Renaud Bresson',
   city: 'Feurs (42110)',
-  // Vide tant que le numéro n'est pas renseigné : `npm run smoke` échoue dans ce cas.
-  siret: '',
+  siret: '10244291000018',
   email: 'contact@renaudbresson.dev',
   phone: '06 23 84 67 65',
   updated: '2026-09-03',
@@ -27,10 +26,11 @@ export const LEGAL = {
   },
 } as const
 
-// Le formulaire poste encore vers Formspree alors que la politique de
-// confidentialité décrit un traitement auto-hébergé : basculer cette URL vers le
-// script PHP du serveur avant le merge vers main (voir runtime-tests.md).
-export const MAIL_ENDPOINT = 'https://formspree.io/f/mgvyzgdy'
+// Script auto-hébergé : voir server/contact.php et server/README.md pour le
+// déploiement. Reste à faire avant le merge vers main : le déployer réellement
+// sur le VPS et confronter cette URL à ce qui est configuré côté nginx/PHP-FPM
+// (voir runtime-tests.md, points 2 et 14 — l'envoi réel n'est pas vérifié ici).
+export const MAIL_ENDPOINT = 'https://www.renaudbresson.dev/contact.php'
 
 // Les prestataires de formulaires relaient le message par leurs propres serveurs :
 // tant que l'endpoint pointe vers l'un d'eux, la politique publiée est fausse.

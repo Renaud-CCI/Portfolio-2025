@@ -5,5 +5,10 @@
   "email": "Votre email",
   "message": "Votre message",
   "submit": "Envoyer",
-  "privacy_notice": "Votre nom, votre adresse e-mail et votre message sont reçus par un script hébergé sur mon propre serveur, en France, qui me les relaie par courriel. Aucun prestataire tiers n'intervient, et ces données ne servent qu'à vous répondre."
+  "privacy_notice": "Votre nom, votre adresse e-mail et votre message sont reçus par un script hébergé sur mon propre serveur, en France, qui me les relaie par courriel. Aucun prestataire tiers n'intervient, et ces données ne servent qu'à vous répondre.",
+  "success": {
+    "title": "Message envoyé",
+    "message": "Merci, votre message m'est bien parvenu. Je vous répondrai rapidement.",
+    "back": "Retour à l'accueil"
+  }
 }

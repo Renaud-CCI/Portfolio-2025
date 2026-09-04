@@ -53,6 +53,16 @@ const router = createRouter({
       name: 'contact',
       component: () => import('@/components/Contact.vue'),
     },
+    // Cible de redirection du POST classique du formulaire de contact (voir
+    // src/legal.ts, MAIL_ENDPOINT). Pas de lien dedans, pas de contenu propre :
+    // hors sitemap et hors prérendu, comme /legal et /privacy le sont pour la
+    // barre de navigation.
+    {
+      path: '/contact/merci',
+      alias: '/en/contact/merci',
+      name: 'contactSuccess',
+      component: () => import('@/components/ContactSuccess.vue'),
+    },
     {
       path: '/services',
       alias: '/en/services',

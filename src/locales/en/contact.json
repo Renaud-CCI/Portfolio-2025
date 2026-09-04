@@ -5,5 +5,10 @@
   "email": "Your email",
   "message": "Your message",
   "submit": "Send",
-  "privacy_notice": "Your name, email address and message are received by a script hosted on my own server, in France, which forwards them to me by email. No third-party provider is involved, and this data is only used to reply to you."
+  "privacy_notice": "Your name, email address and message are received by a script hosted on my own server, in France, which forwards them to me by email. No third-party provider is involved, and this data is only used to reply to you.",
+  "success": {
+    "title": "Message sent",
+    "message": "Thank you, your message has reached me. I will reply shortly.",
+    "back": "Back to home"
+  }
 }

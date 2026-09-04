@@ -4,7 +4,7 @@ Contrôles qui demandent un œil humain, à dérouler **à la maison** après un
 
 Avant de lire cette liste, lancer `npm run generate && npm run smoke` : une quarantaine de contrôles y passent déjà dans un Chrome headless — console propre sur les quatorze routes, résolution des composants Vuetify, icônes SVG, tiroir mobile, menu de réglages, persistance du thème, navigation, bascule de langue, balises SEO, mouvement réduit, recadrage des vignettes, graisse des `<strong>`, grille des compétences, absence de requête publicitaire, et sur les pages légales : identité de l'éditeur et de l'hébergeur, nombre de traitements et de sous-traitants décrits, traduction réelle de la version anglaise, liens légaux du pied de page.
 
-La **section 12 de `smoke.mjs`** reprend les trois bloquants ci-dessous et fait échouer la commande tant qu'ils tiennent. Ce ne sont pas des régressions, c'est ce journal vérifié par la machine : le message de sortie les distingue explicitement.
+La **section 12 de `smoke.mjs`** reprend les bloquants ci-dessous et fait échouer la commande tant qu'ils tiennent. Ce ne sont pas des régressions, c'est ce journal vérifié par la machine : le message de sortie les distingue explicitement.
 
 **Mode d'emploi**
 
@@ -25,20 +25,10 @@ La **section 12 de `smoke.mjs`** reprend les trois bloquants ci-dessous et fait 
 
 ### 2. Le formulaire poste encore vers Formspree
 
-C'est le point le plus important de la liste. Les pages légales décrivent **le traitement cible** : un script sur ton serveur, en France, sans prestataire tiers. Tant que `MAIL_ENDPOINT` pointe vers Formspree, la politique publiée est fausse — et sur un site dont le CV vend « RGPD (consentement, mentions légales) », c'est le pire endroit où se tromper.
+Écrit le 2026-09-04 : le script existe (`server/contact.php`, voir `server/README.md`), `MAIL_ENDPOINT` dans `src/legal.ts` pointe déjà dessus, et `npm run dev` peut se lancer normalement — reste le déploiement, qui seul rendra le formulaire fonctionnel en prod.
 
-- **À faire** : écrire le script PHP, le déployer, puis remplacer `MAIL_ENDPOINT` dans `src/legal.ts`.
-- **Le script doit** : accepter le POST `name` / `email` / `message`, refuser les autres origines (CORS ou vérification du `Referer`), ne pas réinjecter l'entrée de l'utilisateur dans les en-têtes du courriel (injection d'en-tête), et rediriger vers une page de confirmation — le formulaire est un POST classique sans JavaScript, l'utilisateur quitte donc la page.
-- **Point de conformité à tenir** : si le script écrit les messages dans un fichier ou une base plutôt que de les relayer seulement par courriel, cette copie-là doit être purgée comme le dit la politique. Voir aussi le point 5 pour les journaux.
-- **Contrôlé par** : `smoke.mjs`, section 12.
-
-### 3. Image manquante pour la carte wikiwa
-
-`public/images/portfolio/wikiwa.webp` n'existe pas. L'entrée est déclarée dans `src/components/Projects.vue`.
-
-- **À faire** : capture de wikiwa.com, export en `.webp`, dépôt à ce chemin.
-- **Symptôme si oublié** : première carte du portfolio en image cassée.
-- **Contrôlé par** : `smoke.mjs`, section 12.
+- **À faire** : déposer `contact.php` sur le VPS (PHP-FPM, MTA local pour `mail()`), à l'URL déjà annoncée par `MAIL_ENDPOINT`.
+- **Contrôlé par** : `smoke.mjs`, section 12, pour la partie statique (l'URL n'est plus un tiers connu). L'envoi réel reste à tester une fois déployé — voir le point 14.
 
 ---
 
