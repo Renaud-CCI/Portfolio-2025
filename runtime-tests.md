@@ -14,14 +14,11 @@ La **section 12 de `smoke.mjs`** reprend les bloquants ci-dessous et fait échou
 
 ---
 
-## 🔴 Bloquants
+Plus aucun 🔴 bloquant au 2026-09-04 : SIRET, image wikiwa, hébergement et formulaire de contact sont tous résolus et vérifiés en conditions réelles (mail reçu, formulaire testé de bout en bout jusqu'à la redirection `/contact/merci`). Détail du dernier réglé, pour mémoire :
 
-### 2. Le formulaire poste encore vers Formspree
-
-Mis à jour le 2026-09-04 : `contact.php` est déployé sur le VPS (`/var/www/portfolio-scripts/`), routé par nginx, testé — rejette bien une origine invalide (403) et accepte une origine valide jusqu'à l'envoi du mail. `MAIL_ENDPOINT` pointe dessus dans `src/legal.ts`.
-
-- **À faire** : postfix installé en mode satellite, relais SMTP vers la boîte IONOS configuré (`relayhost`, SASL) — reste à Renaud d'y mettre le mot de passe (`/etc/postfix/sasl_passwd`, jamais géré par l'agent) et de vérifier le nom exact du serveur SMTP IONOS. Une fois fait : `echo test | mail -s test contact@renaudbresson.dev`, puis le vrai formulaire — voir le point 14.
-- **Contrôlé par** : `smoke.mjs`, section 12, pour la partie statique (l'URL n'est plus un tiers connu). L'envoi réel reste à tester une fois le MTA opérationnel.
+**Postfix (relais IONOS)** — deux pièges rencontrés, à ne pas redécouvrir si le VPS reçoit un jour un autre expéditeur applicatif :
+- Le preseed `postfix/mailname = renaudbresson.dev` avait ajouté ce domaine à `mydestination` : postfix livrait `contact@renaudbresson.dev` en local (« unknown user ») au lieu de relayer. `mydestination` ne doit contenir que `$myhostname`/`localhost` sur un satellite.
+- IONOS refuse un `MAIL FROM` qui ne correspond pas au compte authentifié (550 Sender address is not allowed) — l'expéditeur par défaut de `mail`/PHP est l'utilisateur Unix local (`www-data@vps-...`), pas `contact@renaudbresson.dev`. Réglé par `smtp_generic_maps` (`/etc/postfix/generic`), qui réécrit tout expéditeur du domaine du VPS vers `contact@renaudbresson.dev`.
 
 ---
 
@@ -103,12 +100,6 @@ Elles sont neuves et personne ne les a encore regardées. La machine sait qu'ell
 Les PDF ne portent aucune métadonnée de langue : l'association repose sur le suffixe des fichiers d'origine, invérifiable sans les ouvrir.
 
 - **À faire** : télécharger le CV depuis le pied de page en français, vérifier qu'il est en français. Recommencer en anglais.
-
-### 14. Envoi réel du formulaire
-
-`smoke.mjs` vérifie la présence du formulaire, sa mention de traitement et son renvoi vers la politique, pas l'acheminement.
-
-- **À faire, une fois le point 2 réglé** : envoyer un message de test et confirmer sa réception par courriel. Tester aussi un envoi depuis une autre origine pour vérifier que le script le refuse.
 
 ### 15. Aperçus de partage
 

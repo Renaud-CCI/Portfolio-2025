@@ -3,37 +3,39 @@
 Scripts et config côté serveur du portfolio, hors du build Vite (jamais copiés dans `dist/`).
 Déployés par `.github/workflows/deploy.yml` sur le VPS OVH qui héberge déjà wikiwa.com.
 
+**Statut au 2026-09-04 : tout est en place et vérifié en conditions réelles** (front servi
+en HTTPS, formulaire testé de bout en bout jusqu'à la réception du mail). Le détail
+ci-dessous documente comment, pour la prochaine fois qu'il faut y retoucher.
+
 ## `contact.php`
 
 Relais du formulaire de contact — voir le commentaire en tête du fichier pour le détail
 du contrat (méthode, origine, anti-injection d'en-têtes, redirection).
 
-Déployé par la CI dans `/var/www/portfolio-scripts/contact.php`, en dehors de
+Déployé dans `/var/www/portfolio-scripts/contact.php`, en dehors de
 `/var/www/portfolio-frontend` pour ne pas être effacé par le `rsync --delete` qui
 resynchronise `dist/` à chaque déploiement du front.
 
-**Prérequis non automatisés :**
+**MTA (postfix, mode satellite, relais IONOS)** : installé et fonctionnel. Deux pièges
+rencontrés à l'installation, à ne pas redécouvrir — détaillés dans `runtime-tests.md`
+(section hébergement) :
 
-- Un MTA local doit être disponible sur le VPS pour `mail()` (postfix en mode
-  satellite/relais suffit — pas besoin de recevoir de courriel, seulement d'en
-  envoyer). **Absent du VPS au 2026-09-04** (`systemctl is-active postfix/exim4` :
-  `inactive`/absent des deux) — `mail()` échouera tant que ce n'est pas fait.
-- Une fois l'endpoint réellement joignable, vérifier `npm run smoke` (section 12) :
-  il ne doit plus matcher un tiers connu (déjà le cas, `MAIL_ENDPOINT` pointe sur
-  `https://www.renaudbresson.dev/contact.php` dans `src/legal.ts`).
-- Test manuel obligatoire — voir `runtime-tests.md`, point 14 : envoyer un message
-  réel, confirmer la réception, et vérifier qu'un POST depuis une autre origine est
-  bien rejeté (403).
+- `mydestination` ne doit **pas** contenir `renaudbresson.dev`, sinon postfix livre en
+  local au lieu de relayer (« unknown user »).
+- IONOS refuse un `MAIL FROM` qui ne correspond pas au compte authentifié — `smtp_generic_maps`
+  (`/etc/postfix/generic`) réécrit l'expéditeur local du VPS vers `contact@renaudbresson.dev`.
+- Identifiants SMTP dans `/etc/postfix/sasl_passwd` (chmod 600, jamais commité, jamais
+  géré par un agent — mot de passe entré directement par Renaud sur le VPS).
 
 ## `renaudbresson.dev.nginx`
 
-Vhost du front (SPA prérendue) et du script de contact. **Version pré-certbot : HTTP
-seul.** Une fois `certbot --nginx -d renaudbresson.dev -d www.renaudbresson.dev` lancé
-sur le VPS, il réécrit ce fichier pour ajouter les blocs HTTPS et la redirection
-80 → 443 (voir le vhost `wikiwa.com` du même serveur pour la forme attendue). **C'est
-cette version réécrite qu'il faut rapatrier et committer ici** — tant que ce n'est pas
-fait, chaque déploiement CI réécrase par la version bootstrap, sans régression mais
-sans progrès non plus.
+Vhost du front (SPA prérendue) et du script de contact, HTTPS. Généré par
+`certbot --nginx -d renaudbresson.dev -d www.renaudbresson.dev` le 2026-09-04 puis
+rapatrié ici, **avec un correctif manuel** : certbot avait copié la redirection du
+domaine nu telle quelle dans le nouveau bloc HTTPS (`return 301 http://www...` au lieu
+de `https://`), cassant `https://renaudbresson.dev/`. Si `certbot renew` ou une
+relance manuelle de `certbot --nginx` réécrit ce fichier un jour, revérifier ce point
+avant de le recommitter.
 
 ## Déploiement (`.github/workflows/deploy.yml`)
 
@@ -46,18 +48,21 @@ commande qui prérend, voir `CLAUDE.md`), puis :
 3. `rsync server/renaudbresson.dev.nginx → /etc/nginx/sites-available/renaudbresson.dev`,
    `nginx -t && systemctl reload nginx`
 
-**Secrets GitHub requis** (repo `Renaud-CCI/Portfolio-2025`, absents au 2026-09-04) :
-`VPS_SSH_KEY`, `VPS_USER`, `VPS_HOST` — mêmes noms que sur `wikiwa-spa`, où ils sont
-déjà configurés pour le même VPS.
+**Secrets GitHub** (repo `Renaud-CCI/Portfolio-2025`) : `VPS_SSH_KEY`, `VPS_USER`,
+`VPS_HOST` — configurés le 2026-09-04, mêmes valeurs que sur `wikiwa-spa` (même VPS).
 
-## Ce qui reste à faire avant que le site serve réellement en prod (voir `runtime-tests.md`, point 4)
+Le workflow n'a pas encore tourné réellement (il n'existe que sur `dev`, et GitHub
+n'autorise le déclenchement — automatique ou manuel — qu'à partir de la branche par
+défaut). Le premier déploiement effectif se fera au prochain merge vers `master`.
+Le bootstrap initial (dossiers, vhost, contact.php) a été fait à la main, avec les
+mêmes commandes que celles du workflow.
 
-1. Bootstrap : créer `/var/www/portfolio-frontend` et `/var/www/portfolio-scripts` sur
-   le VPS, déployer le vhost HTTP, configurer les secrets GitHub — peut se faire dès
-   maintenant, le site ne sera joignable qu'après l'étape 2.
-2. **Basculer l'enregistrement A de `www.renaudbresson.dev` chez IONOS** vers l'IP du
-   VPS — étape hors CI, à faire par Renaud (le site tourne aujourd'hui sur Vercel : le
-   couper avant que le VPS ne réponde casse le site en ligne).
-3. Une fois le DNS propagé, lancer `certbot --nginx` sur le VPS, puis rapatrier le
-   vhost réécrit dans ce dépôt (voir ci-dessus).
-4. Installer/configurer un MTA pour `contact.php` (voir plus haut).
+## Infra du VPS (pour mémoire)
+
+- IP : `135.125.79.85`, accès `ssh wikiwa-vps`.
+- `wikiwa-backend`/`horizon`/`wikiwa-scheduler` restent gérés par **supervisor**, pas
+  systemd (voir le `CLAUDE.md` de `wikiwa-api`) — ne pas confondre avec l'unité
+  systemd `frankenphp.service`, orpheline et en échec permanent sur ce VPS (port 80
+  déjà pris par nginx), sans rapport avec le vrai service ni avec le portfolio.
+- DNS `renaudbresson.dev`/`www` chez IONOS, deux enregistrements A vers l'IP ci-dessus.
+  Domaine détaché de Vercel.
