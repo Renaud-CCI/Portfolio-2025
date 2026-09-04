@@ -6,19 +6,20 @@
     <h1 class="text-4xl md:text-5xl font-bold text-center mb-6 text-teal-600">
       {{ t('services.title') }}
     </h1>
-    <p class="max-w-3xl mx-auto text-center text-base md:text-lg text-gray-600 dark:text-gray-300 mb-12">
+    <p class="max-w-3xl mx-auto text-center text-base md:text-lg mb-12"
+      :class="isDark ? 'text-gray-300' : 'text-gray-600'">
       {{ t('services.intro') }}
     </p>
 
     <!-- Cartes -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-      <div v-for="(item, key) in serviceKeys" :key="key" class="bg-white/10 dark:bg-black/20 hover:bg-white/20 hover:dark:bg-black/30
-         rounded-xl px-6 py-4 shadow-md border-t border-white/30 dark:border-white/10
-         hover:ring-2 hover:ring-amber-400/60 hover:shadow-lg transition-all duration-300">
+      <div v-for="(item, key) in serviceKeys" :key="key"
+        class="rounded-xl px-6 py-4 shadow-md border-t hover:ring-2 hover:ring-amber-400/60 hover:shadow-lg transition-all duration-300"
+        :class="isDark ? 'bg-black/20 hover:bg-black/30 border-white/10' : 'bg-white/10 hover:bg-white/20 border-white/30'">
         <h2 class="text-xl font-bold mb-2 text-amber-500">
           {{ t(`services.items.${item}.title`) }}
         </h2>
-        <p class="text-base text-gray-600 dark:text-gray-300">
+        <p class="text-base" :class="isDark ? 'text-gray-300' : 'text-gray-600'">
           {{ t(`services.items.${item}.description`) }}
         </p>
       </div>

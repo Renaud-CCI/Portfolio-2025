@@ -5,7 +5,7 @@
       <h1 class="text-4xl md:text-5xl font-bold text-teal-600 mb-6">
         {{ t('contact.title') }}
       </h1>
-      <p class="text-lg mb-10 text-gray-600 dark:text-gray-300">
+      <p class="text-lg mb-10" :class="isDark ? 'text-gray-300' : 'text-gray-600'">
         {{ t('contact.intro') }}
       </p>
 
@@ -36,19 +36,22 @@
         <div>
           <label for="name" class="block font-medium mb-1">{{ t('contact.name') }}</label>
           <input id="name" type="text" name="name" required
-            class="w-full rounded-lg border border-gray-300 dark:border-gray-700 px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white focus:ring-2 focus:ring-teal-500" />
+            class="w-full rounded-lg border px-4 py-2 focus:ring-2 focus:ring-teal-500"
+            :class="isDark ? 'border-gray-700 bg-gray-800 text-white' : 'border-gray-300 bg-white text-black'" />
         </div>
 
         <div>
           <label for="email" class="block font-medium mb-1">{{ t('contact.email') }}</label>
           <input id="email" type="email" name="email" required
-            class="w-full rounded-lg border border-gray-300 dark:border-gray-700 px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white focus:ring-2 focus:ring-teal-500" />
+            class="w-full rounded-lg border px-4 py-2 focus:ring-2 focus:ring-teal-500"
+            :class="isDark ? 'border-gray-700 bg-gray-800 text-white' : 'border-gray-300 bg-white text-black'" />
         </div>
 
         <div>
           <label for="message" class="block font-medium mb-1">{{ t('contact.message') }}</label>
           <textarea id="message" name="message" rows="5" required
-            class="w-full rounded-lg border border-gray-300 dark:border-gray-700 px-4 py-2 bg-white dark:bg-gray-800 text-black dark:text-white focus:ring-2 focus:ring-teal-500"></textarea>
+            class="w-full rounded-lg border px-4 py-2 focus:ring-2 focus:ring-teal-500"
+            :class="isDark ? 'border-gray-700 bg-gray-800 text-white' : 'border-gray-300 bg-white text-black'"></textarea>
         </div>
 
         <div class="text-center flex justify-center items-center mt-6">

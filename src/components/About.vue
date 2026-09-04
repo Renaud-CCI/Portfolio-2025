@@ -35,7 +35,7 @@
       <dl class="space-y-6">
         <div v-for="group in skills" :key="group.label" class="md:grid md:grid-cols-[14rem_1fr] md:gap-6">
           <dt class="font-semibold text-teal-600 mb-1 md:mb-0">{{ group.label }}</dt>
-          <dd class="text-base text-gray-700 dark:text-gray-300">{{ group.items }}</dd>
+          <dd class="text-base" :class="isDark ? 'text-gray-300' : 'text-gray-700'">{{ group.items }}</dd>
         </div>
       </dl>
     </div>
@@ -45,12 +45,12 @@
       <h3 class="text-2xl font-bold mb-10 mt-10 text-center">🎓 {{ t('about.diplomas_title') }}</h3>
       <div class="space-y-10 relative border-l-4 border-teal-500 pl-6">
         <div v-for="step in diplomas" :key="step.date" class="relative mt-6">
-          <div
-            class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-teal-500 border-4 border-white dark:border-gray-900">
+          <div class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-teal-500 border-4"
+            :class="isDark ? 'border-gray-900' : 'border-white'">
           </div>
           <div class="mb-1 text-sm font-semibold text-teal-600">{{ step.date }}</div>
           <div class="text-lg font-bold mb-1">{{ step.title }}</div>
-          <div class="text-base text-gray-700 dark:text-gray-300">{{ step.description }}</div>
+          <div class="text-base" :class="isDark ? 'text-gray-300' : 'text-gray-700'">{{ step.description }}</div>
         </div>
       </div>
     </div>
@@ -60,12 +60,12 @@
       <h3 class="text-2xl font-bold mb-10 mt-10 text-center">💼 {{ t('about.timeline_title') }}</h3>
       <div class="space-y-10 relative border-l-4 border-amber-500 pl-6">
         <div v-for="step in timeline" :key="step.date" class="relative mt-6">
-          <div
-            class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-amber-500 border-4 border-white dark:border-gray-900">
+          <div class="absolute -left-[30px] top-0 w-5 h-5 rounded-full bg-amber-500 border-4"
+            :class="isDark ? 'border-gray-900' : 'border-white'">
           </div>
           <div class="mb-1 text-sm font-semibold text-amber-600">{{ step.date }}</div>
           <div class="text-lg font-bold mb-1">{{ step.title }}</div>
-          <div class="text-base text-gray-700 dark:text-gray-300">{{ step.description }}</div>
+          <div class="text-base" :class="isDark ? 'text-gray-300' : 'text-gray-700'">{{ step.description }}</div>
         </div>
       </div>
     </div>

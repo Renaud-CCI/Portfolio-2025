@@ -28,7 +28,8 @@
             </v-btn>
           </div>
           <p ref="heroText"
-            class="anim-item hero-text mt-10 text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-white/90 dark:text-white/80">
+            class="anim-item hero-text mt-10 text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+            :class="isDark ? 'text-white/80' : 'text-white/90'">
             {{ t('home.intro_text') }}
           </p>
         </div>

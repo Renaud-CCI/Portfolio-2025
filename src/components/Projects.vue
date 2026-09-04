@@ -5,20 +5,23 @@
       {{ t('portfolio.title') }}
     </h1>
 
-    <p class="max-w-3xl mx-auto text-center text-base md:text-lg text-gray-600 dark:text-gray-300 mb-12">
+    <p class="max-w-3xl mx-auto text-center text-base md:text-lg mb-12"
+      :class="isDark ? 'text-gray-300' : 'text-gray-600'">
       {{ t('portfolio.intro') }}
     </p>
 
     <!-- Grid des projets -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       <div v-for="project in projects" :key="project.id"
-        class="bg-white/10 hover:bg-white/20 dark:bg-black/20 hover:dark:bg-black/30 rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 transform hover:scale-105 hover:shadow-xl"
+        class="rounded-xl shadow-lg overflow-hidden cursor-pointer transition-transform duration-300 transform hover:scale-105 hover:shadow-xl"
+        :class="isDark ? 'bg-black/20 hover:bg-black/30' : 'bg-white/10 hover:bg-white/20'"
         @click="openProject(project)">
         <img :src="project.image" :alt="t(`portfolio.projects.${project.id}.title`)"
           class="w-full h-48 object-cover" loading="lazy" decoding="async" />
         <div class="py-2 px-4">
           <h2 class="text-xl font-bold mb-2 text-amber-500">{{ t(`portfolio.projects.${project.id}.title`) }}</h2>
-          <p class="text-sm text-gray-500 dark:text-gray-400">{{ t(`portfolio.projects.${project.id}.description`) }}
+          <p class="text-sm" :class="isDark ? 'text-gray-400' : 'text-gray-500'">
+            {{ t(`portfolio.projects.${project.id}.description`) }}
           </p>
         </div>
       </div>
