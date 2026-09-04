@@ -16,35 +16,18 @@ La **section 12 de `smoke.mjs`** reprend les bloquants ci-dessous et fait échou
 
 ## 🔴 Bloquants
 
-### 1. SIRET absent des mentions légales
-
-`LEGAL.siret` est vide dans `src/legal.ts`. La ligne n'est alors pas affichée du tout — pas de libellé orphelin — mais l'identification légale d'une activité professionnelle est incomplète, et la note qui renvoie au répertoire SIRENE disparaît avec elle.
-
-- **À faire** : renseigner les quatorze chiffres dans `src/legal.ts`. Un seul endroit, les deux langues suivent.
-- **Contrôlé par** : `smoke.mjs`, section 12.
-
 ### 2. Le formulaire poste encore vers Formspree
 
-Écrit le 2026-09-04 : le script existe (`server/contact.php`, voir `server/README.md`), `MAIL_ENDPOINT` dans `src/legal.ts` pointe déjà dessus, et `npm run dev` peut se lancer normalement — reste le déploiement, qui seul rendra le formulaire fonctionnel en prod.
+Mis à jour le 2026-09-04 : `contact.php` est déployé sur le VPS (`/var/www/portfolio-scripts/`), routé par nginx, testé — rejette bien une origine invalide (403) et accepte une origine valide jusqu'à l'envoi du mail. `MAIL_ENDPOINT` pointe dessus dans `src/legal.ts`.
 
-- **À faire** : déposer `contact.php` sur le VPS (PHP-FPM, MTA local pour `mail()`), à l'URL déjà annoncée par `MAIL_ENDPOINT`.
-- **Contrôlé par** : `smoke.mjs`, section 12, pour la partie statique (l'URL n'est plus un tiers connu). L'envoi réel reste à tester une fois déployé — voir le point 14.
+- **À faire** : postfix installé en mode satellite, relais SMTP vers la boîte IONOS configuré (`relayhost`, SASL) — reste à Renaud d'y mettre le mot de passe (`/etc/postfix/sasl_passwd`, jamais géré par l'agent) et de vérifier le nom exact du serveur SMTP IONOS. Une fois fait : `echo test | mail -s test contact@renaudbresson.dev`, puis le vrai formulaire — voir le point 14.
+- **Contrôlé par** : `smoke.mjs`, section 12, pour la partie statique (l'URL n'est plus un tiers connu). L'envoi réel reste à tester une fois le MTA opérationnel.
 
 ---
 
-## Décision d'hébergement prise le 2026-09-03
+## Hébergement — VPS OVH, fait le 2026-09-04
 
-Les pages légales sont écrites pour **le VPS OVH**, site et script de contact sur la même machine. Conséquences à mettre en œuvre :
-
-### 4. Basculer l'hébergement du portfolio sur le VPS
-
-Le nom de domaine reste chez IONOS, seul l'enregistrement A change. Le site est aujourd'hui servi par Vercel, que les mentions légales ne nomment plus.
-
-- **À faire** : conteneur nginx sur le VPS, enregistrement A de `www.renaudbresson.dev` vers son IP, certificat TLS.
-- **Configuration nginx à reprendre telle quelle** : `try_files $uri $uri/index.html /index.html;`. C'est cette directive qui sert `dist/en/about/index.html` sur `/en/about` **et** assure le repli SPA. Sans le `$uri/index.html`, tout le prérendu est perdu et chaque page renvoie le titre de l'accueil.
-- **Tant que ce n'est pas fait**, les mentions légales nomment un hébergeur qui n'est pas le bon. C'est le pendant du point 2 pour l'hébergement.
-
-**Si tu changes d'avis** et restes sur Vercel : corriger `LEGAL.host` dans `src/legal.ts`, et surtout **rétablir dans les deux `legal.json` la section de transfert hors Union européenne** — l'entrée `privacy.processors.items` de clé `host` et la phrase d'introduction « aucune donnée n'est transférée hors de l'Union » deviennent fausses.
+Décision prise le 2026-09-03, exécutée le 2026-09-04 : nginx + certbot sur le VPS (`server/renaudbresson.dev.nginx`, rapatrié après un correctif — certbot avait copié la redirection HTTP du domaine nu telle quelle dans le bloc HTTPS), DNS IONOS basculé, Vercel plus dans le chemin. `try_files $uri $uri/index.html /index.html;` en place, vérifié en prod.
 
 ### 5. Journalisation du serveur : la politique annonce trente jours
 
@@ -58,6 +41,8 @@ Réglé pour les messages — la politique dit maintenant « supprimés dès que
 - **Si tu tiens aux IP** : écrire les journaux du portfolio dans un volume à lui (`/srv/portfolio/logs/`) et ajouter un `/etc/logrotate.d/portfolio` en `daily` + `rotate 30`.
 
 Si tu choisis la première option, **préviens-moi** : il faut alors retirer le traitement « Journaux techniques du serveur » des deux `legal.json`, pas seulement changer la configuration du serveur.
+
+**État réel au 2026-09-04** : ni l'une ni l'autre option n'est faite. Le vhost bootstrap journalise dans `/var/log/nginx/renaudbresson.dev.access.log` avec le format par défaut (donc `$remote_addr`), sans `logrotate` dédié — exactement le piège décrit plus haut. Décision toujours à prendre.
 
 ---
 
@@ -129,11 +114,11 @@ Les PDF ne portent aucune métadonnée de langue : l'association repose sur le s
 
 C'est la raison d'être du prérendu, et elle ne se vérifie qu'une fois le site en ligne — les robots des réseaux sociaux lisent l'URL publique.
 
-- **À faire, après déploiement** : passer `https://www.renaudbresson.dev/projects` et `https://www.renaudbresson.dev/en/about` dans le [post inspector LinkedIn](https://www.linkedin.com/post-inspector/) et le [validateur Facebook](https://developers.facebook.com/tools/debug/). Chaque URL doit afficher **son propre** titre et sa propre description, pas ceux de l'accueil.
-- **Symptôme** : le titre de l'accueil sur toutes les pages — le prérendu n'aurait pas été déployé, ou le serveur ne sert pas `dist/<route>/index.html` (voir la directive `try_files` du point 4).
+- **À faire, le site étant maintenant en ligne** : passer `https://www.renaudbresson.dev/projects` et `https://www.renaudbresson.dev/en/about` dans le [post inspector LinkedIn](https://www.linkedin.com/post-inspector/) et le [validateur Facebook](https://developers.facebook.com/tools/debug/). Chaque URL doit afficher **son propre** titre et sa propre description, pas ceux de l'accueil.
+- **Symptôme** : le titre de l'accueil sur toutes les pages — le prérendu n'aurait pas été déployé, ou le serveur ne sert pas `dist/<route>/index.html` (voir la directive `try_files`, section « Hébergement » plus haut).
 
 ### 16. Déployer avec `generate`, pas `build`
 
 `npm run build` ne prérend rien. La commande de déploiement est **`npm run generate`**.
 
-- **À faire** : mettre à jour le script ou la procédure de déploiement, et le vérifier au point 15.
+- **Réglé le 2026-09-04** : `.github/workflows/deploy.yml` appelle `npm run generate`, pas `build`. Le manuel n'est plus dans le chemin.
