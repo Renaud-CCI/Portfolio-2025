@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Renaud Bresson — Développeur Full Stack</title>
+<style>
+  @page { size: A4; margin: 0; }
+
+  :root {
+    --teal: #0f8a7a;
+    --teal-dark: #0a6d61;
+    --amber: #c97f16;
+    --ink: #1c2320;
+    --muted: #55605c;
+    --rule: #d9e2df;
+    --pad: 13mm;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    margin: 0;
+    padding: 0 0 9mm;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 9.4pt;
+    line-height: 1.3;
+    color: var(--ink);
+    background: #fff;
+  }
+
+  a { color: var(--teal-dark); text-decoration: none; border-bottom: 1px solid rgba(15,138,122,.35); }
+
+  /* ---------- en-tete pleine largeur ---------- */
+
+  header {
+    background: var(--teal);
+    color: #fff;
+    padding: 8mm var(--pad) 6mm;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 23pt;
+    font-weight: 700;
+    letter-spacing: .045em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .role {
+    margin: 1.8mm 0 3.4mm;
+    font-size: 11.5pt;
+    font-weight: 600;
+    color: #d7f2ec;
+    letter-spacing: .02em;
+  }
+
+  .contact { font-size: 9pt; line-height: 1.5; color: #eafaf6; }
+  .contact a { color: #fff; border-bottom-color: rgba(255,255,255,.45); }
+  .contact .sep { opacity: .5; margin: 0 .45em; }
+  .remote { font-weight: 700; color: #fff; }
+
+  main { padding: 4mm var(--pad) 0; }
+
+  /* ---------- sections ---------- */
+
+  h2 {
+    margin: 4.4mm 0 2.2mm;
+    font-size: 11.8pt;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: .015em;
+    border-bottom: 1.5px solid var(--rule);
+    padding-bottom: .9mm;
+  }
+
+  .lede {
+    margin: 0;
+    font-size: 9.6pt;
+    line-height: 1.42;
+    color: var(--muted);
+  }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- competences ---------- */
+
+  .skills { display: grid; grid-template-columns: 33mm 1fr; gap: 1.3mm 4mm; }
+  .skills dt { font-weight: 700; color: var(--amber); }
+  .skills dd { margin: 0; }
+
+  /* ---------- experience ---------- */
+
+  .job { margin-bottom: 3.2mm; break-inside: avoid; }
+
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4mm;
+  }
+  .job-title { font-weight: 700; font-size: 9.9pt; }
+  .job-title .org { color: var(--teal); }
+  .job-date {
+    font-weight: 700;
+    color: var(--amber);
+    white-space: nowrap;
+    font-size: 9.1pt;
+  }
+
+  .job-sub { color: var(--muted); font-style: italic; margin: .3mm 0 .9mm; }
+
+  ul { margin: 0; padding-left: 4mm; }
+  li { margin-bottom: .4mm; }
+  li::marker { color: var(--teal); }
+  ul ul { margin-top: .4mm; padding-left: 3.8mm; }
+
+  .item-lead { font-weight: 600; }
+
+  /* ---------- formation ---------- */
+
+  .edu { display: grid; grid-template-columns: 25mm 1fr; gap: 1mm 4mm; }
+  .edu dt { font-weight: 700; color: var(--amber); }
+  .edu dd { margin: 0; }
+
+  /* ---------- apercu ecran ---------- */
+
+  @media screen {
+    body {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 6mm auto;
+      box-shadow: 0 2px 18px rgba(0,0,0,.16);
+    }
+  }
+
+  /* compactage pour tenir sur une page */
+  body { padding-bottom: 5mm; font-size: 9.2pt; line-height: 1.26; }
+  header { padding: 6.5mm var(--pad) 5mm; }
+  main { padding-top: 3mm; }
+  h2 { margin: 3.4mm 0 1.8mm; }
+  .job { margin-bottom: 2.5mm; }
+  li { margin-bottom: .3mm; }
+
+  /* trait rouge a la fin de chaque page, visible a l'ecran seulement */
+  @media screen {
+    body {
+      background:
+        repeating-linear-gradient(to bottom,
+          transparent 0, transparent 296.6mm,
+          #e11d48 296.6mm, #e11d48 297mm),
+        #fff;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Renaud Bresson</h1>
+  <div class="role">Développeur Full Stack</div>
+  <div class="contact">
+    <a href="mailto:contact@renaudbresson.dev">contact@renaudbresson.dev</a><span class="sep">·</span><a href="tel:+33623846765">06 23 84 67 65</a><span class="sep">·</span>Feurs (42)<span class="sep">·</span><span class="remote">Télétravail ou hybride</span><br>
+    <a href="https://renaudbresson.dev">renaudbresson.dev</a><span class="sep">·</span><a href="https://github.com/Renaud-CCI">github.com/Renaud-CCI</a><span class="sep">·</span><a href="https://linkedin.com/in/renaud-bresson/">linkedin.com/in/renaud-bresson</a>
+  </div>
+</header>
+
+<main>
+
+<p class="lede">
+  Développeur full stack, reconverti après 18 ans en laboratoire d'analyses médicales et d'hygiène
+  alimentaire. J'interviens aujourd'hui sur <strong>plusieurs couches d'un ERP industriel</strong> :
+  front Angular, backend Java/Spring et ERP Frappe. Ancien correspondant qualité,
+  je développe les outils du métier que j'ai exercé.
+</p>
+
+<h2>Compétences</h2>
+<dl class="skills">
+  <dt>Au quotidien</dt>
+  <dd>TypeScript · Angular 21 · PHP / Laravel · Vue.js · SQL (PostgreSQL, MySQL)</dd>
+
+  <dt>En contexte pro</dt>
+  <dd>Java 21 / Spring Boot · Node.js / Express · Python (Frappe / ERPNext) · Keycloak (OAuth2, OIDC) · Symfony (notions)</dd>
+
+  <dt>Interface</dt>
+  <dd>Tailwind · shadcn · Design system · Figma · Accessibilité (WCAG 2.1 AA)</dd>
+
+  <dt>Mise en production</dt>
+  <dd>Déploiement et administration VPS Linux · Docker · Git · CI/CD (GitLab CI, GitHub Actions) · Tests (Vitest, JUnit, Pest) · Revue de code</dd>
+
+  <dt>Conformité &amp; SEO</dt>
+  <dd>RGPD (consentement, mentions légales) · Rendu serveur pour l'indexation et les aperçus de partage</dd>
+
+  <dt>Langues</dt>
+  <dd>Français — langue maternelle · Anglais — B2 (lu, écrit, parlé)</dd>
+</dl>
+
+<h2>Expérience professionnelle</h2>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">Développeur full stack — <span class="org">EP MECA</span>, Veauche (42)</div>
+    <div class="job-date">Depuis mai 2026</div>
+  </div>
+  <div class="job-sub">ERP industriel sur mesure, développé en interne par une équipe de 5, dont 3 développeurs.</div>
+  <ul>
+    <li>Front <strong>Angular 21</strong> : architecture par signaux, composants et écrans métier</li>
+    <li>Contribution au <strong>design system interne</strong> de l'équipe : bibliothèque de composants réutilisables, versionnée et publiée en paquet</li>
+    <li>Backend <strong>Java 21 / Spring Boot</strong>, architecture hexagonale multi-tenant</li>
+    <li>ERP <strong>Frappe / ERPNext</strong> (Python) : DocTypes, hooks métier, permissions</li>
+    <li>Tests (Vitest, JUnit), revue de code via des merge requests GitLab</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">Développeur indépendant <span class="org">— auto-entrepreneur</span></div>
+    <div class="job-date">Depuis 2024</div>
+  </div>
+  <ul>
+    <li>
+      <span class="item-lead"><a href="https://wikiwa.com">wikiwa.com</a> (depuis mai 2026)</span> —
+      plateforme de recommandation de séries (Laravel + Vue.js), en production.
+      Conception, développement, déploiement et exploitation en autonomie.
+      <ul>
+        <li>Moteur de recommandation par filtrage collaboratif, intégration de l'API TheTVDB, comptes utilisateurs, tableau de bord, tri multicritère</li>
+        <li>Rendu du contenu côté serveur pour l'indexation et les aperçus de partage, les robots d'exploration n'exécutant pas le JavaScript</li>
+        <li>Accessibilité <strong>WCAG 2.1 AA</strong> : structure sémantique, navigation clavier, contrastes</li>
+        <li>Mise en conformité RGPD : consentement, politique de confidentialité, mentions légales</li>
+        <li>Administration du VPS et <strong>déploiement continu par GitHub Actions</strong> : montée des conteneurs Docker et contrôle de leur état, migrations de base de données, reconstruction des caches applicatifs</li>
+        <li>Ouverture progressive par panels de test successifs, corrections sur retours utilisateurs</li>
+      </ul>
+    </li>
+    <li>
+      <span class="item-lead">Shinefulness (2024 – 2026)</span> — conception et développement d'une API REST
+      Laravel et d'une application Vue.js. Modélisation des données utilisateurs et logique métier,
+      mise en production, maintenance et évolutions.
+    </li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">Alternant Concepteur Développeur d'Applications — <span class="org">M2M Financement</span></div>
+    <div class="job-date">2024 – 2025</div>
+  </div>
+  <ul>
+    <li>Refonte d'un ERP interne et d'un site marchand (PHP natif, JavaScript)</li>
+    <li>Développement de fonctionnalités métier et correction de bugs en production</li>
+    <li>Rédaction de supports de formation utilisateurs</li>
+  </ul>
+</div>
+
+<div class="job">
+  <div class="job-head">
+    <div class="job-title">Technicien de laboratoire — <span class="org">analyses médicales, hygiène alimentaire</span></div>
+    <div class="job-date">2003 – 2021</div>
+  </div>
+  <ul>
+    <li>Correspondant qualité et délégué du personnel : procédures, traçabilité, audits</li>
+    <li>L'expérience terrain que j'outille aujourd'hui côté logiciel</li>
+  </ul>
+</div>
+
+<h2>Formation</h2>
+<dl class="edu">
+  <dt>2025</dt>
+  <dd>Concepteur Développeur d'Applications (CDA) — titre RNCP niveau 6 (bac+3/4), en alternance</dd>
+  <dt>2023</dt>
+  <dd>Titre professionnel Développeur Web et Web Mobile — RNCP niveau 5 (bac+2)</dd>
+  <dt>Depuis 2021</dt>
+  <dd>Formation continue et veille technologique</dd>
+</dl>
+
+</main>
+
+</body>
+</html>
