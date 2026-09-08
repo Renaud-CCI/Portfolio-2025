@@ -118,7 +118,10 @@ const links = computed(() =>
 )
 
 const changeLanguage = (lng: Lang) => {
-  void router.push(pathForLang(route.path, lng))
+  // Les routes /en sont des alias : vue-router les ramène à la même route que
+  // leur équivalent français et refuse la navigation comme un doublon. `force`
+  // la fait aboutir, donc l'URL change et beforeEach bascule la langue.
+  void router.push({ path: pathForLang(route.path, lng), force: true })
 }
 
 onMounted(() => {
